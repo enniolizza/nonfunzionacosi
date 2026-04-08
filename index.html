@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non Funziona Così</title>
+    <style>
+        /* Rimuoviamo i margini per far occupare all'iframe tutto lo schermo */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Blocca lo scroll della finestra principale */
+            background-color: #1F2022; /* Dark Slate in caso di caricamento */
+        }
+        
+        /* L'iframe agirà come lo 'schermo' che carica e mostra i vari file */
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none; /* Nessun bordo, sembra un sito unico */
+            display: block;
+        }
+        
+        /* Una finta barra di sistema per far sembrare il file come un programma */
+        .system-bar {
+            background-color: #8B1E19; /* Roman Red */
+            color: #C5A059; /* Imperial Gold */
+            font-family: monospace;
+            padding: 5px 15px;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #C5A059;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Barra decorativa stile 'Terminale/Programma' -->
+    <div class="system-bar">
+        <span>[NON FUNZIONA COSÌ] Main.class - Esecuzione avviata</span>
+        <span>Stato: Online</span>
+    </div>
+
+    <!-- Questo frame carica dinamicamente tutti i file (le 'classi') al suo interno -->
+    <iframe src="pagine/home.html" name="main-frame" id="main-frame" title="Finestra di navigazione interna"></iframe>
+
+</body>
+</html>

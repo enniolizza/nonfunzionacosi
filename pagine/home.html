@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quotidiano Indipendente. Analizziamo i fatti, smontiamo le narrazioni, difendiamo radici e cultura. Portate i dati, al caffè pensiamo noi.">
+    <title>Non Funziona Così | Difendiamo Radici e Cultura</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --roman-red: #8B1E19; /* Rosso pompeiano scuro */
+            --imperial-gold: #C5A059;
+            --marble-white: #e9e6dc;
+            --dark-slate: #1F2022;
+            --parchment: #f4f1ea;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--marble-white);
+            color: var(--dark-slate);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Accessibilità: Salto al contenuto principale */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--roman-red);
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.2s;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Testata (Header) */
+        header {
+            background-color: var(--marble-white);
+            border-bottom: 4px solid var(--roman-red);
+            border-top: 12px solid var(--roman-red);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .logo-img {
+            max-width: 100px;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+            border: 2px solid var(--imperial-gold);
+        }
+
+        h1.site-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            color: var(--dark-slate);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 10px 0 5px;
+        }
+
+        .tagline {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--roman-red);
+            border-top: 1px solid var(--imperial-gold);
+            border-bottom: 1px solid var(--imperial-gold);
+            display: inline-block;
+            padding: 5px 20px;
+        }
+
+        /* Navigazione */
+        nav {
+            background-color: var(--dark-slate);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            overflow-x: auto;
+        }
+
+        nav a {
+            color: #dcdcdc; /* Bianca ma non troppo per contrasto migliore */
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        nav a:hover, nav a:focus {
+            color: var(--imperial-gold);
+        }
+
+        /* Sezione Hero / Manifesto */
+        .hero {
+            background-color: var(--dark-slate);
+            color: var(--marble-white);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--imperial-gold);
+            box-shadow: inset 0px -20px 30px -10px rgba(0,0,0,0.5);
+        }
+
+        .manifesto {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 40px;
+            border: 1px solid rgba(197, 160, 89, 0.5); /* Gold ma piu sottile */
+            border-radius: 4px;
+        }
+
+        .manifesto h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            color: var(--imperial-gold);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .manifesto-list {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            list-style: none;
+            text-align: left;
+            margin: 0 auto;
+            display: inline-block;
+        }
+
+        .manifesto-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .manifesto-list li span {
+            font-size: 1.6rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            padding: 10px;
+            display: inline-block;
+            line-height: 1;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .roman-quote {
+            margin-top: 30px;
+            font-style: italic;
+            color: #ccc;
+            font-size: 1.1rem;
+            border-top: 1px dashed rgba(197, 160, 89, 0.3);
+            padding-top: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Notizie / Articoli */
+        main {
+            padding: 60px 0;
+            background-color: var(--parchment);
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--roman-red);
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--imperial-gold);
+            margin: 15px auto 0;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .article-card {
+            background: var(--marble-white);
+            border: 1px solid #d4cfc1;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: var(--dark-slate);
+        }
+
+        .article-card:hover, .article-card:focus-within {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 200px;
+            background-color: #333;
+            background-size: cover;
+            background-position: center;
+            border-bottom: 3px solid var(--roman-red);
+        }
+
+        /* Usando l'immagine dall'ultimo articolo o un fallback solido scuro */
+        .article-wti {
+            background-image: url('../articoli/petrolio_wti/images/tradingview_chart.png'); 
+            background-color: #1a1d24; 
+        }
+
+        .article-superbonus {
+            background-image: url('../articoli/superbonus_110/images/hero_superbonus.png');
+            background-color: #1a1d24;
+        }
+
+        .article-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-category {
+            font-family: 'Cinzel', serif;
+            color: var(--roman-red);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .article-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            line-height: 1.3;
+            margin-bottom: 15px;
+        }
+
+        .article-excerpt {
+            font-size: 1rem;
+            color: #444;
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            color: var(--roman-red);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            align-self: flex-start;
+            padding-bottom: 2px;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .article-card:hover .read-more {
+            border-color: var(--roman-red);
+        }
+
+        /* Modulo Iscrizione (Fake per estetica) */
+        .newsletter {
+            background-color: var(--roman-red);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            border-top: 4px solid var(--imperial-gold);
+            border-bottom: 4px solid var(--imperial-gold);
+        }
+        .newsletter h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        .newsletter p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        .newsletter input {
+            padding: 12px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 10px;
+        }
+        .newsletter button {
+            background-color: var(--dark-slate);
+            color: var(--imperial-gold);
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .newsletter button:hover {
+            background-color: #000;
+        }
+
+        /* ===== BANNER CAROUSEL ===== */
+        .banner-carousel {
+            position: relative;
+            width: 100%;
+            height: 420px;
+            overflow: hidden;
+            border-bottom: 4px solid var(--imperial-gold);
+        }
+        .banner-slide {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+        .banner-slide.active {
+            opacity: 1;
+        }
+        .banner-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(31,32,34,0.35) 0%, rgba(31,32,34,0.85) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px 50px;
+        }
+        .banner-overlay h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.4rem;
+            color: var(--imperial-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        }
+        .banner-overlay p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--marble-white);
+            max-width: 600px;
+            line-height: 1.7;
+        }
+        .banner-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        .banner-dot {
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.35);
+            border: 2px solid var(--imperial-gold);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .banner-dot.active {
+            background: var(--imperial-gold);
+        }
+
+        /* ===== NEWS TICKER ===== */
+        .news-ticker {
+            background: var(--dark-slate);
+            border-bottom: 3px solid var(--roman-red);
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .ticker-label {
+            display: inline-block;
+            background: var(--roman-red);
+            color: white;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 5px 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-right: 20px;
+            vertical-align: middle;
+        }
+        .ticker-content {
+            display: inline-block;
+            animation: ticker-scroll 35s linear infinite;
+            color: var(--marble-white);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            vertical-align: middle;
+        }
+        .ticker-content span {
+            margin-right: 60px;
+            color: #ccc;
+        }
+        .ticker-content span::before {
+            content: '▸ ';
+            color: var(--imperial-gold);
+        }
+        @keyframes ticker-scroll {
+            0% { transform: translateX(10%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* ===== EDITORIAL PILLARS ===== */
+        .editorial-pillars {
+            background: linear-gradient(135deg, #1F2022 0%, #2a2c2f 100%);
+            padding: 70px 20px;
+            border-bottom: 4px solid var(--imperial-gold);
+        }
+        .pillars-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            color: var(--imperial-gold);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 50px;
+        }
+        .pillars-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--roman-red);
+            margin: 15px auto 0;
+        }
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .pillar-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(197,160,89,0.25);
+            border-radius: 6px;
+            padding: 35px 25px;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .pillar-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--imperial-gold);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+        .pillar-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+        .pillar-card h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--imperial-gold);
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .pillar-card p {
+            font-family: 'Playfair Display', serif;
+            color: #bbb;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* ===== MISSION / CHI SIAMO SECTION ===== */
+        .mission-section {
+            background: var(--parchment);
+            padding: 70px 20px;
+            border-bottom: 3px solid var(--roman-red);
+        }
+        .mission-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .mission-text h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--roman-red);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .mission-text p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        .mission-text .highlight {
+            color: var(--roman-red);
+            font-weight: 700;
+            font-style: italic;
+        }
+        .mission-image {
+            width: 100%;
+            border-radius: 6px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 3px solid var(--imperial-gold);
+        }
+
+        /* ===== STATS COUNTER ===== */
+        .stats-section {
+            background: var(--dark-slate);
+            padding: 50px 20px;
+            border-top: 4px solid var(--imperial-gold);
+            border-bottom: 4px solid var(--roman-red);
+        }
+        .stats-grid {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-number {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            color: var(--imperial-gold);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .stat-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ===== QUOTE BANNER ===== */
+        .quote-banner {
+            background: linear-gradient(135deg, var(--roman-red) 0%, #6b1512 100%);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            border-bottom: 3px solid var(--imperial-gold);
+        }
+        .quote-banner blockquote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto 15px;
+            line-height: 1.5;
+        }
+        .quote-banner cite {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--imperial-gold);
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-slate);
+            color: var(--marble-white);
+            text-align: center;
+            padding: 40px 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--imperial-gold);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1.site-title { font-size: 2.2rem; }
+            .manifesto-list { font-size: 1.1rem; }
+            .hero { padding: 40px 15px; }
+            .manifesto h2 { font-size: 1.6rem; }
+            nav ul { justify-content: flex-start; padding: 15px; }
+            .newsletter input { border-radius: 4px; max-width: 100%; }
+            .newsletter button { border-radius: 4px; width: 100%; margin-top: 10px; }
+            .banner-carousel { height: 280px; }
+            .banner-overlay h2 { font-size: 1.5rem; }
+            .banner-overlay p { font-size: 1rem; }
+            .banner-overlay { padding: 20px; }
+            .mission-inner { grid-template-columns: 1fr; }
+            .stats-grid { gap: 30px; }
+            .stat-number { font-size: 2.2rem; }
+            .quote-banner blockquote { font-size: 1.3rem; }
+            .pillars-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Salta al contenuto principale</a>
+
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <img src="../loghi_&_fonts/immagini/ChatGPT Image 8 feb 2026, 20_50_48.png" alt="Logo de Non Funziona Così" class="logo-img">
+            </div>
+            <h1 class="site-title">Non Funziona Così</h1>
+            <p class="tagline">La Verità oltre la Propaganda</p>
+        </div>
+    </header>
+
+    <nav aria-label="Menu Principale">
+        <ul>
+            <li><a href="home.html">Prima Pagina</a></li>
+            <li><a href="#">Economia & Mercati</a></li>
+            <li><a href="#">Geopolitica</a></li>
+            <li><a href="chi_siamo.html">Il Nostro Manifesto</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <div class="container">
+            <div class="manifesto">
+                <h2>Il Nostro Manifesto</h2>
+                <ul class="manifesto-list">
+                    <li><span>📊</span> Analizziamo i fatti</li>
+                    <li><span>🧩</span> Smontiamo le narrazioni</li>
+                    <li><span>🌿</span> Difendiamo radici e cultura</li>
+                    <li><span>❓</span> Ma in quale realtà vivete?</li>
+                    <li><span>☕</span> Portate i dati, al caffè pensiamo noi</li>
+                </ul>
+                <p class="roman-quote">"Fortes fortuna iuvat" - La fortuna aiuta gli audaci.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== BANNER CAROUSEL ===== -->
+    <div class="banner-carousel" id="banner-carousel">
+        <div class="banner-slide active" style="background-image: url('../loghi_&_fonts/immagini/banners/banner_parlamento.png');">
+            <div class="banner-overlay">
+                <h2>La Politica Sotto la Lente</h2>
+                <p>Analizziamo ogni decreto, ogni manovra, ogni promessa. Perché i cittadini meritano la verità, non gli slogan.</p>
+            </div>
+        </div>
+        <div class="banner-slide" style="background-image: url('../loghi_&_fonts/immagini/banners/banner_stampa.png');">
+            <div class="banner-overlay">
+                <h2>Giornalismo Senza Filtri</h2>
+                <p>In un'epoca di propaganda e narrazioni costruite, noi stampiamo solo i fatti. Verificati, documentati, incontestabili.</p>
+            </div>
+        </div>
+        <div class="banner-slide" style="background-image: url('../loghi_&_fonts/immagini/banners/banner_colosseo.png');">
+            <div class="banner-overlay">
+                <h2>Radici Italiane, Valori Eterni</h2>
+                <p>Dall'eredità di Roma alla sfida del presente. Difendiamo la nostra identità con dati, cultura e coraggio.</p>
+            </div>
+        </div>
+        <div class="banner-dots">
+            <span class="banner-dot active" onclick="goToSlide(0)"></span>
+            <span class="banner-dot" onclick="goToSlide(1)"></span>
+            <span class="banner-dot" onclick="goToSlide(2)"></span>
+        </div>
+    </div>
+
+    <!-- ===== NEWS TICKER ===== -->
+    <div class="news-ticker">
+        <span class="ticker-label">⚡ Flash</span>
+        <span class="ticker-content">
+            <span>Superbonus 110%: il buco nero da 150 miliardi che nessuno vuole raccontare</span>
+            <span>WTI crolla del 15,86% — ma i media parlano d'altro</span>
+            <span>Debito pubblico italiano oltre i 3.000 miliardi: servono risposte, non slogan</span>
+            <span>Lotta alla disinformazione: i numeri che smontano la propaganda</span>
+            <span>Non Funziona Così — la nuova voce del giornalismo indipendente italiano</span>
+        </span>
+    </div>
+
+    <!-- ===== EDITORIAL PILLARS ===== -->
+    <section class="editorial-pillars">
+        <h2 class="pillars-title">I Nostri Pilastri Editoriali</h2>
+        <div class="pillars-grid">
+            <div class="pillar-card">
+                <span class="pillar-icon">🔍</span>
+                <h3>Fact-Checking</h3>
+                <p>Ogni affermazione verificata con fonti istituzionali. Corte dei Conti, Bankitalia, ISTAT: noi citiamo, non inventiamo.</p>
+            </div>
+            <div class="pillar-card">
+                <span class="pillar-icon">🏛️</span>
+                <h3>Identità e Tradizione</h3>
+                <p>Valorizziamo le radici culturali italiane e la tradizione classica come fondamento della società moderna.</p>
+            </div>
+            <div class="pillar-card">
+                <span class="pillar-icon">📈</span>
+                <h3>Analisi Economica</h3>
+                <p>Grafici, dati macro, analisi tecnica. Smontare la propaganda economica è il nostro mestiere quotidiano.</p>
+            </div>
+            <div class="pillar-card">
+                <span class="pillar-icon">🛡️</span>
+                <h3>Indipendenza Totale</h3>
+                <p>Nessun partito, nessun editore, nessun padrone. Solo fatti, dati e il coraggio di raccontarli.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MISSION SECTION ===== -->
+    <section class="mission-section">
+        <div class="mission-inner">
+            <div class="mission-text">
+                <h2>Perché "Non Funziona Così"?</h2>
+                <p>Perché siamo stanchi delle narrazioni preconfezionate.<br>Perché ogni giorno ci raccontano una realtà che <span class="highlight">non esiste</span>.</p>
+                <p>Siamo una testata giornalistica indipendente, nata dalla convinzione che <span class="highlight">l'informazione è un diritto, non un privilegio</span>. Analizziamo i fatti con rigore, citiamo le fonti, smontiamo le bugie — quelle dei governi, dei media mainstream e di chiunque manipoli la verità.</p>
+                <p>Le nostre radici sono italiane, i nostri valori sono conservatori, il nostro metodo è scientifico. <span class="highlight">Non ci interessa piacere: ci interessa essere precisi.</span></p>
+            </div>
+            <img src="../loghi_&_fonts/immagini/banners/banner_colosseo.png" alt="Roma, le nostre radici" class="mission-image">
+        </div>
+    </section>
+
+    <!-- ===== STATS SECTION ===== -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number" id="stat-articles">2</div>
+                <div class="stat-label">Articoli Pubblicati</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Fonti Verificate</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Editori Padroni</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">Caffè Bevuti</div>
+            </div>
+        </div>
+    </section>
+
+    <main id="main-content">
+        <div class="container">
+            <h2 class="section-title">In Evidenza</h2>
+            
+            <div class="news-grid">
+                <!-- Articolo Superbonus 110% (NUOVO) -->
+                <article class="article-card">
+                    <a href="../articoli/superbonus_110/index.html" aria-hidden="true" tabindex="-1">
+                        <div class="article-image article-superbonus"></div>
+                    </a>
+                    <div class="article-content">
+                        <span class="article-category">Economia & Conti Pubblici</span>
+                        <h3 class="article-title"><a href="../articoli/superbonus_110/index.html" style="color:inherit; text-decoration:none;">💣 Superbonus 110%: La Voragine da 150 Miliardi</a></h3>
+                        <p class="article-excerpt">165 miliardi di crediti generati, solo 25 compensati. Corte dei Conti e Bankitalia parlano di «disastro annunciato». L'analisi completa con tutti i numeri, le frodi e le fonti.</p>
+                        <a href="../articoli/superbonus_110/index.html" class="read-more" aria-label="Leggi l'articolo completo sul Superbonus 110%">Leggi i Fatti &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Articolo WTI -->
+                <article class="article-card">
+                    <a href="../articoli/petrolio_wti/index.html" aria-hidden="true" tabindex="-1">
+                        <div class="article-image article-wti"></div>
+                    </a>
+                    <div class="article-content">
+                        <span class="article-category">Economia & Geopolitica</span>
+                        <h3 class="article-title"><a href="../articoli/petrolio_wti/index.html" style="color:inherit; text-decoration:none;">🛢️ Petrolio WTI: Il Crollo del -15,86% In Una Sola Seduta</a></h3>
+                        <p class="article-excerpt">Analisi tecnica e fondamentale. Cosa dicono i grafici e come smontiamo la propaganda qualunquista sui rincari della benzina.</p>
+                        <a href="../articoli/petrolio_wti/index.html" class="read-more" aria-label="Leggi l'articolo completo sul petrolio WTI">Leggi i Fatti &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Placeholder 2 -->
+                <article class="article-card">
+                    <div class="article-image" style="background-color: #2F4F4F;"></div> 
+                    <!-- Dark Slate Gray per Sicurezza -->
+                    <div class="article-content">
+                        <span class="article-category">Sicurezza Interna</span>
+                        <h3 class="article-title"><a href="#" style="color:inherit; text-decoration:none;">Legge e Ordine: I Veri Dati sulla Sicurezza Urbana</a></h3>
+                        <p class="article-excerpt">Un'analisi cruda e senza filtri sui reali e crescenti indici di criminalità all'interno delle città italiane. I numeri che i media tradizionali ignorano.</p>
+                        <a href="#" class="read-more" aria-label="Leggi l'articolo in arrivo sulla sicurezza">In Arrivo &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Placeholder 3 -->
+                <article class="article-card">
+                    <div class="article-image" style="background-color: #8B1E19;"></div>
+                    <!-- Rosso pompeiano scuro per Cultura/Radici -->
+                    <div class="article-content">
+                        <span class="article-category">Radici & Cultura</span>
+                        <h3 class="article-title"><a href="#" style="color:inherit; text-decoration:none;">Riscoprire le Virtù dell'Impero nella Società Moderna</a></h3>
+                        <p class="article-excerpt">Famiglia, tradizione, onore. Perché i valori del mondo classico sono oggi l'unico e vero baluardo contro il declino morale contemporaneo.</p>
+                        <a href="#" class="read-more" aria-label="Leggi l'articolo in arrivo sui valori classici">In Arrivo &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <div class="newsletter">
+        <div class="container">
+            <h3>Resta Libero. Iscriviti alla Newsletter.</h3>
+            <p>Ricevi le analisi dirette e senza censura di "Non Funziona Così" direttamente nella tua posta.</p>
+            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Grazie per esserti iscritto alla Verità!');">
+                <input type="email" placeholder="La tua email..." required aria-label="Email per newsletter">
+                <button type="submit">Combatti con Noi</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== QUOTE BANNER ===== -->
+    <div class="quote-banner">
+        <blockquote>"Il popolo informato è la più grande minaccia per la propaganda. E noi informiamo il popolo."</blockquote>
+        <cite>— Redazione Non Funziona Così</cite>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Non Funziona Così</div>
+            <p>&copy; 2026 Testata Giornalistica Conservatrice Indipendente. Tutti i diritti riservati.</p>
+            <p style="font-size: 0.85rem; margin-top: 10px; color:#aaa;">"Roma non fu costruita in un giorno, né crollerà senza combattere."</p>
+        </div>
+    </footer>
+
+    <!-- ===== BANNER CAROUSEL SCRIPT ===== -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.banner-slide');
+        const dots = document.querySelectorAll('.banner-dot');
+        const totalSlides = slides.length;
+
+        function goToSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            currentSlide = n;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            goToSlide((currentSlide + 1) % totalSlides);
+        }
+
+        // Auto-rotation ogni 6 secondi
+        setInterval(nextSlide, 6000);
+    </script>
+
+</body>
+</html>

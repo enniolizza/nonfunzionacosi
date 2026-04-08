@@ -1,0 +1,12 @@
+# File pesanti non necessari per il sito web
+*.zip
+Brochure_Riforma_CMYK.pdf
+
+# System files
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# IDE
+.vscode/
+.idea/

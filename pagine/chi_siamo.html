@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chi Siamo - Non Funziona Così. Difendiamo la Patria, la famiglia e la sicurezza con i dati alla mano, ispirati alle antiche virtù romane.">
+    <title>Chi Siamo | Non Funziona Così</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --roman-red: #8B1E19; /* Rosso pompeiano scuro */
+            --imperial-gold: #C5A059;
+            --marble-white: #e9e6dc;
+            --dark-slate: #1F2022;
+            --parchment: #f4f1ea;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--marble-white);
+            color: var(--dark-slate);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Accessibilità */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--roman-red);
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.2s;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Testata (Header) */
+        header {
+            background-color: var(--marble-white);
+            border-bottom: 4px solid var(--roman-red);
+            border-top: 12px solid var(--roman-red);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px; /* Più stretto per massima leggibilità testi centrali */
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .logo-img {
+            max-width: 100px;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+            border: 2px solid var(--imperial-gold);
+        }
+
+        h1.site-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            color: var(--dark-slate);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 10px 0 5px;
+            text-decoration: none;
+        }
+        h1.site-title a { color: var(--dark-slate); text-decoration: none; }
+
+        /* Navigazione */
+        nav {
+            background-color: var(--dark-slate);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            overflow-x: auto;
+        }
+
+        nav a {
+            color: #dcdcdc; 
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        nav a:hover, nav a:focus, nav a.active {
+            color: var(--imperial-gold);
+        }
+
+        /* Sezione Parallasse (Stile Premium) */
+        .hero {
+            background-color: var(--dark-slate);
+            /* Simula l'effetto parallasse elegante */
+            background-image: radial-gradient(circle at center, #2a2c2f 0%, #151617 100%);
+            color: var(--marble-white);
+            padding: 100px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--imperial-gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120%;
+            height: 100px;
+            background: var(--parchment);
+            border-radius: 50%;
+            box-shadow: inset 0px 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .hero h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            color: var(--imperial-gold);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            color: #dcdcdc;
+            line-height: 1.8;
+        }
+
+        /* Contenuto Pagina */
+        main {
+            padding: 80px 0;
+            background-color: var(--parchment);
+        }
+
+        .chi-siamo-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .chi-siamo-intro h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--roman-red);
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+        }
+
+        .chi-siamo-intro p {
+            font-size: 1.15rem;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        .chi-siamo-intro .drop-cap {
+            float: left;
+            font-family: 'Cinzel', serif;
+            font-size: 5rem;
+            line-height: 0.8;
+            padding-right: 15px;
+            color: var(--imperial-gold);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Griglia Virtù Romane */
+        .virtue-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .virtue-card {
+            background-color: var(--marble-white);
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-top: 4px solid var(--roman-red);
+        }
+
+        .virtue-card:hover {
+            transform: translateY(-10px);
+            border-top-color: var(--imperial-gold);
+        }
+
+        .virtue-card h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--roman-red);
+            margin-bottom: 15px;
+        }
+
+        .virtue-card h4 span {
+            display: block;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            color: #777;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        .virtue-card p {
+            font-size: 1rem;
+            color: #444;
+        }
+
+        /* Sezione Data vs Narrazione */
+        .method-section {
+            background: var(--dark-slate);
+            color: var(--marble-white);
+            padding: 60px;
+            border-radius: 8px;
+            margin-top: 60px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .method-section::before {
+            content: "☕";
+            font-size: 4rem;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--parchment);
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .method-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            text-align: center;
+            color: var(--imperial-gold);
+            margin-bottom: 30px;
+            margin-top: 20px;
+        }
+
+        .method-comparison {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .method-col {
+            flex: 1;
+            padding: 20px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .method-col h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .method-col.false h4 { color: #ff6b6b; } /* Rosso acceso finto */
+        .method-col.true h4 { color: #a8d5ba; } /* Verde scuro verità */
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-slate);
+            color: var(--marble-white);
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 5px solid var(--roman-red);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--imperial-gold);
+            margin-bottom: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 2.5rem; }
+            .hero p { font-size: 1.2rem; }
+            .method-comparison { flex-direction: column; }
+            .chi-siamo-intro .drop-cap { font-size: 4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Salta al contenuto principale</a>
+
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <a href="home.html">
+                    <img src="../loghi_&_fonts/immagini/ChatGPT Image 8 feb 2026, 20_50_48.png" alt="Logo de Non Funziona Così" class="logo-img">
+                </a>
+            </div>
+            <h1 class="site-title"><a href="home.html">Non Funziona Così</a></h1>
+            <p style="font-family: 'Playfair Display'; color: var(--roman-red); font-style: italic;">La Verità oltre la Propaganda</p>
+        </div>
+    </header>
+
+    <nav aria-label="Menu Principale">
+        <ul>
+            <li><a href="home.html">Prima Pagina</a></li>
+            <li><a href="#">Economia & Mercati</a></li>
+            <li><a href="#">Geopolitica</a></li>
+            <li><a href="chi_siamo.html" class="active">Il Nostro Manifesto</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <div class="container">
+            <h2>Chi Siamo</h2>
+            <p>"Ma in quale realtà vivete? Noi in quella dei fatti, non delle narrazioni imposte."</p>
+        </div>
+    </div>
+
+    <main id="main-content">
+        <div class="container">
+            
+            <div class="chi-siamo-intro">
+                <h3>Le Nostre Radici</h3>
+                <p><span class="drop-cap">S</span>iamo nati come voce indipendente contro il dilagare della disinformazione omologata. In un'era in cui l'emotività spicciola e il sensazionalismo superano l'analisi, *Non Funziona Così* si erge a difesa della nostra cultura e del nostro intelletto.</p>
+                <p>Difendiamo orgogliosamente i concetti che hanno costruito la civiltà occidentale: **Patria, Sicurezza, Tradizione e Famiglia**. Crediamo che questi non siano relitti del passato da sradicare, ma le solide fondamenta immutabili su cui costruire un futuro sicuro e prospero. Non ci scusiamo per amare l'ordine e il merito.</p>
+            </div>
+
+            <hr style="border:none; height:1px; background:var(--imperial-gold); margin:40px auto; width: 50%;">
+
+            <div class="chi-siamo-intro">
+                <h3>Le Virtù dell'Impero</h3>
+                <p>Perché richiamarci a Roma? Perché l'Impero non dominava solo con i confini, ma con l'esempio morale, il rigore e le virtù classiche, che abbiamo declinato nel nostro modo di fare informazione giornalistica:</p>
+            </div>
+
+            <div class="virtue-grid">
+                <div class="virtue-card">
+                    <h4>GRAVITAS <span>(La Serietà)</span></h4>
+                    <p>Trattiamo le notizie con la serietà che meritano. Nessun titolo clickbait immorale, solo ricerca spasmodica del dato verificabile ed oggettivo.</p>
+                </div>
+                <div class="virtue-card">
+                    <h4>PIETAS <span>(Il Rispetto profondo)</span></h4>
+                    <p>Il rispetto per ciò che ci ha preceduto. Amiamo le nostre radici e consideriamo sacro il concetto di Patria. Rifiutiamo la narrazione del senso di colpa storico dell'Occidente.</p>
+                </div>
+                <div class="virtue-card">
+                    <h4>VIRTUS <span>(Il Coraggio)</span></h4>
+                    <p>Ci vuole coraggio oggi per essere di spirito conservatore in un mondo uniformato al progressismo obbligatorio. Smontiamo le ipocrisie sociali a testa alta.</p>
+                </div>
+            </div>
+
+            <div class="method-section">
+                <h3>Portate i dati, al caffè pensiamo noi</h3>
+                <p style="text-align: center; font-size: 1.1rem; color: #ccc;">Il nostro è un giornalismo scientifico, logico e pragmatico. Rifiutiamo di bere la propaganda senza fare le dovute analisi.</p>
+                
+                <div class="method-comparison">
+                    <div class="method-col false">
+                        <h4>La Loro Realtà</h4>
+                        <ul style="list-style-type: '❌ '; margin-left: 20px; font-size: 0.95rem;">
+                            <li style="margin-bottom:10px;">Indignazione facile senza leggere i numeri economici (es. i finti rincari della benzina sganciati dalle logiche di mercato).</li>
+                            <li style="margin-bottom:10px;">Banalizzare la sicurezza urbana nascondendo i dati sui crimini in nome del politically correct.</li>
+                            <li>Definire i valori familiari un "costrutto superato e retrogrado".</li>
+                        </ul>
+                    </div>
+                    <div class="method-col true">
+                        <h4>La Nostra Analisi</h4>
+                        <ul style="list-style-type: '📊 '; margin-left: 20px; font-size: 0.95rem;">
+                            <li style="margin-bottom:10px;">Spiegazione tecnica e cruda dell'economia (vedi la nostra autopsia sul prezzo dei futures WTI).</li>
+                            <li style="margin-bottom:10px;">Confronto chirurgico su cosa funziona e cosa distrugge le nostre nazioni. Dati del Viminale, non interpretazioni dei salotti TV.</li>
+                            <li>Promozione della forza intrinseca del nucleo familiare e della nazione forte.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Non Funziona Così</div>
+            <p>&copy; 2026 Testata Giornalistica Conservatrice Indipendente. Tutti i diritti riservati.</p>
+            <p style="font-size: 0.85rem; margin-top: 10px; color:#aaa;">"Roma non fu costruita in un giorno, né crollerà senza combattere."</p>
+        </div>
+    </footer>
+
+</body>
+</html>
