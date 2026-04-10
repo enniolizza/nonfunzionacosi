@@ -278,14 +278,19 @@
         }
 
         /* Data Table */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            -webkit-overflow-scrolling: touch;
+        }
         .data-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 30px 0;
             background: var(--surface-color);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            min-width: 600px;
         }
         .data-table th, .data-table td {
             padding: 14px 18px;
@@ -628,6 +633,7 @@
                 <p>Tuttavia questo effetto positivo è stato quasi totalmente <strong>«cannibalizzato»</strong> dai costi del bonus: l'ISTAT stesso conferma che il deficit/PIL 2021-2022 è rimasto intorno al -8%<sup>[3]</sup>. In pratica, il +8,3% di PIL è derivato in parte dal Superbonus, ma il maggior deficit generato ha neutralizzato ogni beneficio.</p>
 
                 <!-- TABELLA DATI -->
+                <div class="table-responsive">
                 <table class="data-table">
                     <thead>
                         <tr>
@@ -689,6 +695,7 @@
                         </tr>
                     </tbody>
                 </table>
+                </div>
 
                 <div class="info-box">
                     <h4>📌 Il Dato Chiave di Bankitalia</h4>
