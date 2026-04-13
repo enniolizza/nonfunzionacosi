@@ -235,6 +235,9 @@
             border-bottom: 4px solid var(--imperial-gold);
             position: relative;
         }
+
+        .debunk-section p { color: var(--marble-white); }
+        .debunk-section p strong { color: var(--imperial-gold); }
         
         .debunk-section h2 {
             color: var(--imperial-gold);
@@ -294,8 +297,16 @@
             text-align: center;
             padding: 40px 20px;
             border-top: 2px solid var(--roman-red);
-            font-family: 'Cinzel', serif;
+            font-family: 'Playfair Display', serif;
             margin-top: 40px;
+        }
+
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--imperial-gold);
+            margin-bottom: 10px;
+            text-transform: uppercase;
         }
 
         /* Responsive */
@@ -401,7 +412,11 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Non Funziona Così - Oltre la narrazione, la realtà documentata.</p>
+        <div class="container">
+            <div class="footer-logo">Non Funziona Così</div>
+            <p>&copy; 2026 Testata Giornalistica Conservatrice Indipendente. Tutti i diritti riservati.</p>
+            <p style="font-size: 0.85rem; margin-top: 10px; color: rgba(255,255,255,0.3);">«I numeri non hanno opinione politica.»</p>
+        </div>
     </footer>
 
 </body>
