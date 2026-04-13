@@ -3,167 +3,405 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🛢️ Petrolio WTI: Fallisce la Tregua in Pakistan, Inizia il Blocco Navale USA</title>
-    <meta name="description" content="Analisi geopolitica sul WTI oltre i 102$. Dati EIA, CENTCOM, il fallimento di Islamabad e la risposta italiana con il Piano Mattei.">
+    <meta name="description" content="Report investigativo sul prezzo del petrolio. Brent a 118$, blocco navale CENTCOM a Hormuz, il vero costo delle accise (1mld al mese) e la strategia del Piano Mattei.">
+    <title>Dossier: Crisi Petrolifera, Blocco Hormuz e Piano Mattei | Non Funziona Così</title>
     
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-color: #0f1115;
-            --surface-color: #1a1d24;
-            --primary-color: #e63946;
-            --text-main: #f1f1f1;
-            --text-muted: #a0aab2;
-            --accent-green: #2a9d8f;
-            --accent-gold: #e9c46a;
-            --border-color: #2b303a;
+            --roman-red: #8B1E19;
+            --imperial-gold: #C5A059;
+            --marble-white: #e9e6dc;
+            --dark-slate: #1F2022;
+            --parchment: #f4f1ea;
+            --blood-red: #6b1512;
+            --ink-black: #111;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; }
-        header { background-color: var(--surface-color); padding: 20px 0; border-bottom: 2px solid var(--primary-color); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
-        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-        .logo { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.5rem; color: var(--text-main); text-transform: uppercase; letter-spacing: 2px; display: flex; align-items: center; gap: 10px; }
-        .logo span { color: var(--primary-color); }
-        .article-header { margin: 50px 0 30px; text-align: center; }
-        .badge { background-color: var(--primary-color); color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 15px; }
-        h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; line-height: 1.2; margin-bottom: 20px; }
-        .subtitle { font-size: 1.2rem; color: var(--text-muted); font-weight: 300; }
-        .meta { display: flex; justify-content: center; gap: 20px; margin-top: 20px; font-size: 0.9rem; color: var(--text-muted); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 15px 0; }
-        .content { font-size: 1.1rem; color: #d1d5db; }
-        h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--text-main); margin: 40px 0 20px; border-left: 4px solid var(--primary-color); padding-left: 15px; }
-        h3 { font-size: 1.4rem; margin: 30px 0 15px; color: var(--accent-gold); }
-        p { margin-bottom: 20px; }
-        ul { margin-bottom: 20px; padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        .image-wrapper { margin: 40px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.6); border: 1px solid var(--border-color); }
-        .image-wrapper img { width: 100%; display: block; }
-        .caption { background: var(--surface-color); padding: 12px; font-size: 0.85rem; color: var(--text-muted); text-align: center; border-top: 1px solid var(--border-color); }
-        .alert-box { background-color: rgba(230, 57, 70, 0.1); border-left: 4px solid var(--primary-color); padding: 20px; border-radius: 0 8px 8px 0; margin: 30px 0; }
-        .alert-box h4 { color: var(--primary-color); margin-bottom: 10px; font-size: 1.1rem; }
-        .debunk-section { background: linear-gradient(135deg, var(--surface-color) 0%, #111 100%); border: 1px solid var(--border-color); padding: 30px; border-radius: 8px; margin: 40px 0; }
-        .debunk-item { margin-bottom: 30px; }
-        .debunk-item.false h4 { color: var(--primary-color); }
-        .debunk-item.true h4 { color: var(--accent-green); }
-        footer { background-color: var(--surface-color); text-align: center; padding: 40px 0; margin-top: 60px; color: var(--text-muted); border-top: 1px solid var(--border-color); }
-        @media (max-width: 768px) { h1 { font-size: 2rem; } h2 { font-size: 1.6rem; } .meta { flex-direction: column; align-items: center; gap: 10px; } }
+        
+        body { 
+            font-family: 'Playfair Display', serif; 
+            background-color: var(--dark-slate); 
+            color: var(--ink-black); 
+            line-height: 1.7; 
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Header (Allineato al Brand) --- */
+        header {
+            background-color: var(--marble-white);
+            border-bottom: 4px solid var(--roman-red);
+            border-top: 12px solid var(--roman-red);
+            padding: 15px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            border: 2px solid var(--imperial-gold);
+            border-radius: 4px;
+        }
+
+        .site-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--dark-slate);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .nav-link {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            color: var(--roman-red);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-left: 20px;
+            border-left: 2px solid var(--imperial-gold);
+            padding-left: 20px;
+        }
+        
+        .nav-link:hover { color: var(--imperial-gold); }
+
+        /* --- Dossier Layout (PDF Style) --- */
+        main { padding: 40px 20px; }
+
+        .dossier-wrapper {
+            max-width: 950px;
+            margin: 0 auto;
+            background-color: var(--parchment);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6), inset 0 0 100px rgba(197,160,89,0.05);
+            border-top: 6px solid var(--roman-red);
+            border-bottom: 6px solid var(--imperial-gold);
+            position: relative;
+        }
+
+        /* Hero Image */
+        .dossier-hero {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            background-image: url('images/wti_hero_cover.png');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, rgba(31,32,34,1) 0%, rgba(31,32,34,0.7) 60%, transparent 100%);
+            padding: 50px 40px 30px;
+            color: var(--marble-white);
+        }
+
+        .badge-dossier {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            background: var(--roman-red);
+            color: white;
+            padding: 5px 12px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            border: 1px solid var(--imperial-gold);
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            color: var(--imperial-gold);
+        }
+
+        .subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #dcdcdc;
+            max-width: 800px;
+            border-left: 3px solid var(--roman-red);
+            padding-left: 15px;
+        }
+
+        /* Content Area */
+        .content-body {
+            padding: 50px 60px;
+        }
+
+        /* Abstract Box */
+        .abstract-box {
+            background-color: var(--marble-white);
+            border: 1px solid var(--imperial-gold);
+            border-left: 5px solid var(--roman-red);
+            padding: 25px;
+            margin-bottom: 40px;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--dark-slate);
+        }
+
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--roman-red);
+            border-bottom: 2px solid var(--imperial-gold);
+            padding-bottom: 10px;
+            margin: 40px 0 20px;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark-slate);
+            margin: 30px 0 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            margin-bottom: 22px;
+            font-size: 1.15rem;
+            color: #2b2b2b;
+            text-align: justify;
+        }
+
+        strong { color: var(--dark-slate); font-weight: 700; }
+
+        .highlight-data {
+            color: var(--roman-red);
+            font-weight: bold;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Images inside PDF */
+        .pdf-figure {
+            margin: 40px 0;
+            border: 1px solid #d4cfc1;
+            background: white;
+            padding: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .pdf-figure img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .pdf-caption {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: #555;
+            text-align: center;
+            margin-top: 10px;
+            padding: 5px 10px;
+            background: var(--parchment);
+            border-top: 1px dashed var(--imperial-gold);
+        }
+
+        /* Debunking Room */
+        .debunk-section {
+            background: var(--dark-slate);
+            color: var(--marble-white);
+            padding: 40px;
+            margin: 50px -60px; /* extends to edge of wrapper */
+            border-top: 4px solid var(--roman-red);
+            border-bottom: 4px solid var(--imperial-gold);
+            position: relative;
+        }
+        
+        .debunk-section h2 {
+            color: var(--imperial-gold);
+            border-bottom-color: var(--roman-red);
+            margin-top: 0;
+        }
+
+        .debunk-content {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+        
+        @media (max-width: 800px) {
+            .debunk-content { flex-direction: column-reverse; }
+        }
+
+        .debunk-text { flex: 1; }
+
+        .debunk-image {
+            flex: 0 0 350px;
+            border: 3px solid var(--roman-red);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+        .debunk-image img { width: 100%; display: block; }
+
+        .debunk-box {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(197,160,89,0.3);
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+
+        .debunk-box.fake h4 { color: #ff4c4c; font-family: 'Inter', sans-serif; font-size: 1.1rem; margin-bottom: 10px; }
+        .debunk-box.real h4 { color: #4CAF50; font-family: 'Inter', sans-serif; font-size: 1.1rem; margin-bottom: 10px; }
+        .debunk-box p { color: #ddd; font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0; text-align: left;}
+
+        /* Data list */
+        ul.dossier-list {
+            margin: 20px 0 30px 40px;
+            font-size: 1.15rem;
+            color: #2b2b2b;
+        }
+        ul.dossier-list li {
+            margin-bottom: 12px;
+            padding-left: 10px;
+        }
+        ul.dossier-list li::marker {
+            color: var(--roman-red);
+            content: '♦ ';
+        }
+
+        footer {
+            background-color: var(--dark-slate);
+            color: var(--marble-white);
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 2px solid var(--roman-red);
+            font-family: 'Cinzel', serif;
+            margin-top: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content { flex-direction: column; gap: 10px; }
+            .nav-link { margin-left: 0; padding-left: 0; border-left: none; }
+            h1 { font-size: 2rem; }
+            .content-body { padding: 30px 20px; }
+            .debunk-section { margin: 40px -20px; padding: 30px 20px; }
+            .hero-overlay { padding: 30px 20px 20px; }
+            .debunk-image { flex: 0 0 100%; width: 100%; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="container">
-            <div class="logo">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary-color)"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                Contro<span>Corrente</span> Finanza
-            </div>
+        <div class="header-content">
+            <a href="../../pagine/home.html" title="Torna alla Home">
+                <img src="../../loghi_&_fonts/immagini/logo_nonfunzionacosì.png" alt="Logo Non Funziona Così" class="logo-img">
+            </a>
+            <a href="../../pagine/home.html" class="site-title">Non Funziona Così</a>
+            <a href="../../pagine/home.html" class="nav-link">Torna in Prima Pagina</a>
         </div>
     </header>
 
-    <main class="container">
-        <article>
-            <div class="article-header">
-                <span class="badge">Analisi Geopolitica</span>
-                <h1>🛢️ PETROLIO WTI OLTRE I $102: FALLISCE LA TREGUA, INIZIA IL BLOCCO NAVALE USA</h1>
-                <p class="subtitle">I dati EIA, le dichiarazioni del CENTCOM, la crisi diplomatica di Islamabad e la coraggiosa alternativa italiana del Piano Mattei.</p>
-                
-                <div class="meta">
-                    <span><strong>Data:</strong> 13 Aprile 2026</span>
-                    <span><strong>Categoria:</strong> Geopolitica & Mercati</span>
-                    <span><strong>Lettura:</strong> 7 min</span>
+    <main>
+        <article class="dossier-wrapper">
+            
+            <div class="dossier-hero">
+                <div class="hero-overlay">
+                    <span class="badge-dossier">Dossier Geopolitico Ufficiale</span>
+                    <h1>Petrolio, Blocco Navale e l'Avanzata del Piano Mattei</h1>
+                    <p class="subtitle">L'escalation in Medio Oriente paralizza lo Stretto di Hormuz. Analisi sul vero costo dei carburanti e sulle strategie energetiche italiane oltre la propaganda.</p>
                 </div>
             </div>
 
-            <div class="content">
-                <div class="alert-box">
-                    <h4>Disclaimer</h4>
-                    <p>Questo articolo è un'analisi geopolitica e istituzionale documentata attraverso fonti governative ufficiali e bollettini militari internazionali. La realtà dei fatti oltre la propaganda mainstream.</p>
+            <div class="content-body">
+                
+                <div class="abstract-box">
+                    <strong>Sintesi del Dossier:</strong> La crisi esplosa a febbraio 2026 ha generato uno squilibrio fatale. Mentre il Brent sfonda quota 118$ e il blocco navale americano chiude i porti iraniani, in Italia monta la rabbia per le accise. Spieghiamo i dati reali e l'alternativa infrastrutturale del nuovo Piano Mattei.
                 </div>
 
-                <h2>🌍 L'Analisi Geopolitica: Il Fallimento di Islamabad e il Blocco CENTCOM</h2>
+                <h2>⚔️ Il Fallimento di Islamabad e l'Operazione "Iron Wake"</h2>
                 
-                <div class="image-wrapper">
-                    <img src="images/hormuz_strait_map.png" alt="Lo Stretto di Hormuz">
-                    <div class="caption">Lo Stretto di Hormuz: il collo di bottiglia marittimo da cui transita il 25% del traffico petrolifero globale.</div>
+                <p>La narrazione di una de-escalation diplomatica si è ufficialmente frantumata. I recenti negoziati chiave tenutisi in Pakistan, a <strong>Islamabad</strong>, tra emissari occidentali e l'establishment di Teheran sono collassati, confermando una linea rigida e irremovibile.</p>
+                
+                <p>A seguito di questo fallimento, a metà aprile 2026, il Comando Centrale degli Stati Uniti (<strong>CENTCOM</strong>) ha annunciato e avviato un blocco navale "imparziale" per i traffici in entrata e in uscita dai porti iraniani. La US Navy ha schierato il <em>Carrier Strike Group ("Iron Wake")</em> nel Golfo Persico, imponendo un blocco entrato in vigore il <span class="highlight-data">13 aprile 2026 alle 10:00 ET</span>. Le navi sono state istruite a tenersi alla larga per non subire intercettazioni.</p>
+
+                <div class="pdf-figure">
+                    <img src="images/hormuz_map.png" alt="Mappa strategica dello Stretto di Hormuz">
+                    <div class="pdf-caption">Figura 1 – Lo Stretto di Hormuz: il principale collo di bottiglia marittimo da cui transitava il 20% dei consumi globali e un quarto degli scambi marittimi di greggio. L'area evidenziata mostra l'epicentro del blocco CENTCOM.</div>
                 </div>
 
-                <p>L'illusione di una de-escalation è morta questo fine settimana. I report internazionali indicano chiaramente che i negoziati chiave tenutisi a <strong>Islamabad, in Pakistan</strong>, tra emissari di Washington e l'establishment iraniano sono totalmente collassati. Le richieste di Teheran sull'alleggerimento delle sanzioni bancarie SWIFT sono state respinte in blocco, confermando una linea dura e irremovibile dell'amministrazione USA.</p>
+                <h3>Lo Shock dell'Offerta: I Numeri dell'EIA</h3>
+                <p>Gli effetti delle tensioni geopolitiche sulle forniture mondiali di greggio si sono rivelati devastanti. L'ultimo rapporto ufficiale della <strong>U.S. Energy Information Administration (EIA)</strong> fotografa un balzo senza precedenti dal 1988: in soli tre mesi, il prezzo del Brent è schizzato da 61$ a <span class="highlight-data">118$ al barile</span>. Anche i contratti futures WTI scambiano abbondantemente oltre la soglia psicologica dei 100$.</p>
                 
-                <h3>⚓ L'Operazione "Iron Wake" e i Dati CENTCOM</h3>
-                <p>A seguito del naufragio diplomatico in Pakistan, il Comando Centrale degli Stati Uniti (<strong>CENTCOM</strong>) ha ufficialmente dispiegato il <em>Carrier Strike Group</em> nell'area del Golfo Persico, avviando un blocco navale mirato (Operazione "Iron Wake"). L'obiettivo tattico è paralizzare la "flotta fantasma" che sfugge all'embargo. La Marina USA sta intercettando le grandi petroliere, imponendo un fermo operativo immediato sui terminal d'esportazione.</p>
+                <p>Questa fiammata non è "volatilità tecnica". Nel primo semestre 2025, per lo stretto di Hormuz transitavano circa 20,9 milioni di barili al giorno. Oggi, le stime documentate dalla Reuters registrano un crollo dei deflussi a pochissimi milioni, con una perdita stimata di ben <span class="highlight-data">8-10 milioni di barili al giorno</span> solo nel mese di marzo. Una tempesta perfetta che distrugge l'offerta globale.</p>
 
-                <h3>📈 Il Report EIA di Washington: Shock dell'Offerta</h3>
-                <p>L'ultimo report speciale della <strong>Energy Information Administration (EIA)</strong> di Washington ha rivisto al rialzo tutte le proiezioni. L'EIA stima che l'attuale escalation di tensione genererà deviazioni obbligate capaci di congelare fino a <strong>9,1 milioni di barili al giorno</strong> in transito potenziale. Questo squilibrio critico tra domanda globale e offerta ha spinto violentemente il WTI oltre la soglia psicologica dei 102$ al barile.</p>
-
-                <div class="image-wrapper">
-                    <img src="images/centcom_blockade.png" alt="Blocco Navale Carrier Strike Group">
-                    <div class="caption">Operazione "Iron Wake": Il blocco navale CENTCOM in atto per intercettare la flotta fantasma nel Golfo Persico.</div>
-                </div>
-
-                <h2>🛑 DEBUNKING ROOM: Smontiamo la Propaganda sulla Benzina</h2>
-                
-                <p>Con i prezzi del greggio alle stelle per il blocco di Hormuz, la rabbia ai distributori è palpabile e la disinformazione galoppa. Circolano decine di "report" online che mettono a confronto le quotazioni del barile con quelle alla pompa, tralasciando volutamente i costi di raffinazione e le dinamiche logistiche. È facile gridare allo scandalo o puntare il dito contro le accise per strappare un like. Ma l'economia reale non funziona a colpi di slogan. Ripristiniamo la verità.</p>
-
+                <!-- DEBUNKING ROOM ESTESA -->
                 <div class="debunk-section">
-                    <div class="debunk-item false">
-                        <h4>❌ FAKE NEWS: "Il petrolio sale oggi, ma la benzina che ci vendono l'hanno comprata un mese fa! È lo Stato che alza i prezzi in tempo reale per fare cassa."</h4>
-                        <p><strong>La Realtà: Non è lo Stato, è il "Costo di Rimpiazzo" (e la speculazione di filiera).</strong><br>
-                        Fisicamente è vero: il carburante che erogate oggi è stato comprato e trasportato settimane fa. Allora perché il prezzo sale subito? In economia si chiama <em>effetto "Rockets and Feathers"</em> (i prezzi salgono come razzi e scendono come piume). La filiera distributiva non vi fa pagare la benzina in base a quanto l'ha pagata in passato, ma in base a <strong>quanto costerà riempire la prossima cisterna</strong>. Se oggi i distributori vendessero ai prezzi pre-crisi, domani non avrebbero la liquidità sufficiente per rifornirsi alle nuove, altissime, tariffe del mercato internazionale. La narrazione di un governo che "alza i prezzi" è falsa: è la spietata logica della filiera privata che scarica immediatamente il rischio geopolitico sull'utente finale per non fallire.</p>
-                    </div>
+                    <h2>🛑 Dossier Verità: Il Prezzo Reale alla Pompa</h2>
+                    
+                    <div class="debunk-content">
+                        <div class="debunk-text">
+                            <p>Davanti a prezzi che purtroppo, specialmente in Italia, <strong>si vedono sempre più spesso sopra la drammatica soglia dei 2€ al litro</strong>, la rabbia popolare è giustificata. Tuttavia, la risposta che infiamma i social nasconde una distorsione macroeconomica. La propaganda incolpa la speculazione di Stato e il "furto" governativo.</p>
+                            
+                            <div class="debunk-box fake">
+                                <h4>❌ FAKE NEWS: "Il rincaro oltre i 2€ è uno scandalo! La benzina nelle cisterne oggi l'hanno comprata mesi fa a basso prezzo, lo Stato sta speculando per fare cassa."</h4>
+                                <p><strong>L'Analisi dei Dati:</strong> È fisicamente vero che il carburante erogato oggi sia stato approvvigionato prima del blocco di Hormuz, ma l'economia reale obbedisce alla regola del <em>"Costo di Rimpiazzo"</em> (noto anche come effetto <em>razzi e piume</em>). Il benzinaio non fissa il listino sul costo passato, ma su quanto gli costerà rifornirsi domani. Con il Brent oltre i 118$, vendere ai prezzi pre-crisi significherebbe per i distributori non avere i fondi per comprare il nuovo carico, portando l'intera filiera al fallimento in poche settimane. Il consumatore, pur non volendo, è costretto a pagare "in anticipo" il rischio geopolitico affrontato dai gruppi petroliferi.</p>
+                            </div>
 
-                    <div class="debunk-item false">
-                        <h4>❌ FAKE NEWS: "Basta tagliare le accise con un decreto, il governo non lo fa per avidità o per tutelare i poteri forti."</h4>
-                        <p><strong>La Realtà: È pura matematica e sostenibilità del bilancio.</strong><br>
-                        Le accise sono una zavorra inaccettabile ereditata da decenni di malagestione passata, questo è un fatto. Ma chiunque vi prometta tagli netti domani mattina senza coperture vi sta mentendo. Ridurre le accise a debito creerebbe un buco di bilancio immediato di svariati miliardi, innescando sanzioni UE e una fiammata dello spread (che pagheremmo tutti con i mutui). L'attuale esecutivo Meloni sta scegliendo la via più difficile ma l'unica reale: calmierare i costi alla radice svincolandosi dalle tratte in crisi attraverso riforme strutturali, come il potenziamento dei corridoi energetici del Piano Mattei, senza far esplodere il debito pubblico.</p>
+                            <div class="debunk-box fake">
+                                <h4>❌ FAKE NEWS: "Il Governo non taglia le accise per ingordigia, basterebbe un decreto."</h4>
+                                <p><strong>L'Analisi dei Dati:</strong> Come dichiarato ufficialmente dal Ministro Pichetto Fratin, prorogare gli sconti sulle accise fuori emergenza <em>costa circa 1 miliardo di euro al mese</em>. Agire con un decreto in deficit signficherebbe sfonadare la soglia del 3%, innescare speculazioni contro il BTP italiano e far esplodere i mutui dei cittadini. Nessuno Stato europeo può sostenere il taglio permanente di 12 miliardi l'anno senza creare tasse collaterali.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="debunk-image">
+                            <img src="images/fuel_pump.png" alt="Rincaro prezzi carburanti: l'effetto sulle pompe di benzina in Italia">
+                        </div>
                     </div>
                 </div>
 
-                <h2>🇮🇹 L'Azione Pragmatica del Governo: Il Piano Mattei</h2>
+                <h2>🇮🇹 L'Alternativa Strutturale: L'Avanzata del Piano Mattei</h2>
                 
-                <p>Mentre la crisi di Islamabad paralizza le rotte asiatiche, l'Italia si muove con pragmatismo. Il <strong>Piano Mattei</strong> è il tentativo italiano, fortemente voluto dal Presidente del Consiglio Giorgia Meloni, di cambiare ruolo nel Mediterraneo, passando dalla logica degli "aiuti a fondo perduto" a quella degli investimenti strategici.</p>
+                <p>Non si contrasta uno shock globale geopolitico lamentandosi di aumenti transitori se non si risolve la dipendenza logistica. L'Italia, di fronte alla chiusura delle rotte in Medio Oriente, ha in serbo un asse strategico con il continente africano: il <strong>Piano Mattei</strong>.</p>
+                
+                <p>Nato come progetto pluriennale per erigere l'Italia a hub energetico del Sud-Nord, il Piano ha smesso di essere solo "diplomazia" ed è passato in fase operativa, con ben <span class="highlight-data">5,5 miliardi di euro complessivi</span> stanziati a bilancio (di cui 3 miliardi dal Fondo Italiano per il Clima e 2,5 miliardi da risorse per la cooperazione).</p>
 
-                <p>L'obiettivo è rendere l'Italia un vero e proprio <strong>ponte energetico</strong> tra le risorse africane e il fabbisogno europeo, modificando e svincolando le nostre dipendenze dalle attuali rotte mondiali, ostaggio dell'instabilità mediorientale.</p>
-
-                <p>Dopo anni di annunci, il Piano è entrato nella sua fase più concreta. Non parliamo più solo di visioni strategiche, ma di progetti che nel 2026 stanno iniziando a mostrare i primi risultati sul campo.</p>
-
-                <h3>Le Tappe Fondamentali</h3>
-                <ul>
-                    <li><strong>2023 - Diplomazia:</strong> Missioni in Nord Africa per riallacciare i rapporti storici e definire i settori chiave.</li>
-                    <li><strong>2024 - Il Vertice:</strong> Lancio ufficiale a Roma con 45 delegazioni africane e lo stanziamento di 5,5 miliardi di euro.</li>
-                    <li><strong>2025 - Cantieri:</strong> Avvio dei 9 progetti pilota, dalla potabilizzazione in Etiopia al supporto agricolo in Ghana.</li>
-                    <li><strong>2026 - Rete Globale:</strong> Integrazione con i fondi G7 e UE per trasformare i progetti in corridoi economici internazionali.</li>
+                <h3>Le Tappe Fondamentali (Aggiornamento 2026)</h3>
+                <ul class="dossier-list">
+                    <li><strong>Partner Coinvolti:</strong> Il network, dopo l'annuncio iniziale di 9 aderenti, è cresciuto oggi a <span class="highlight-data">18 Paesi africani</span> (tra cui Gabon, Rwanda, Repubblica Democratica del Congo e Zambia).</li>
+                    <li><strong>Grandi Infrastrutture:</strong> Focus assoluto sul potenziamento dei corridoi strategici, con particolare priorità al <em>"Corridoio di Lobito"</em> per unire l'Atlantico alle risorse interne continentali, aggirando le zone instabili musulmane e mediorientali.</li>
+                    <li><strong>Capacità Umane - I Laboratori Mattei:</strong> Lo sviluppo di programmi di formazione professionale in Africa (nei settori energetici e agricoli) per consolidare i governi amici e arrestare alle radici cause d'esodo incontrollato.</li>
+                    <li><strong>Alleanze Occidentali:</strong> Integrazione del Piano Mattei all'interno delle dotazioni G7 e UE, con il pieno benestare della Banca Mondiale.</li>
                 </ul>
 
-                <p>Il Piano Mattei si è evoluto in una strategia corale che coinvolge i principali partner occidentali:</p>
-                <ul>
-                    <li><strong>Sinergia G7:</strong> L'integrazione con il fondo PGII ha sbloccato finanziamenti internazionali per i grandi corridoi infrastrutturali.</li>
-                    <li><strong>Presenza sul campo:</strong> L'apertura di uffici operativi di Cassa Depositi e Prestiti in Africa ha accelerato la gestione dei capitali.</li>
-                </ul>
-                
-                <p>A marzo 2026, sono ben <strong>18 i Paesi africani</strong> direttamente coinvolti dal Piano.</p>
-
-                <h3>Il Ponte Energetico e i Laboratori Mattei</h3>
-                <p>Il cuore pulsante del piano resta la connettività pesante, garantita da infrastrutture immense come il cavo sottomarino ELMED. L'obiettivo è rendere l'Italia il "rubinetto" d'Europa capace di garantire sicurezza energetica e protezione dalle crisi come quella nello Stretto di Hormuz.</p>
-
-                <p>La vera novità del 2026 sono i <strong>"Laboratori Mattei"</strong>, nati dalla collaborazione con le grandi imprese italiane. Si tratta di programmi di formazione che preparano i giovani africani a lavorare nei settori dell'energia e dell'agricoltura sostenibile, creando lavoro direttamente sul territorio di origine.</p>
-
-                <h3>Criticità Geopolitiche e Stabilità</h3>
-                <p>Un approccio basato sui fatti richiede di guardare anche alle sfide: il successo del Piano dipenderà dalla stabilità di zone chiave come il Sahel, che rappresenta oggi il fronte principale per la continuità degli investimenti nel lungo periodo. Tuttavia, il tracciato è segnato: l'Italia non è più a guardare, ma è tornata a guidare la geopolitica energetica.</p>
-
-                <h2>📝 Conclusione</h2>
-                <p>Viviamo un'epoca in cui la politica internazionale e l'economia sono distorte dalla propaganda. Davanti al fallimento del negoziato in Pakistan e al blocco navale USA, non servono i lamenti, servono le strategie. Il Piano Mattei rappresenta esattamente questo: visione, tutela nazionale e pragmatismo.</p>
+                <p>Le indagini non lasciano spazio a dubbi: gridare alla truffa per la benzina a 2€ è facile, ma governa chi accetta la responsabilità di pianificare decenni, non soli mesi. Le soluzioni per il blocco di Hormuz non sono sconti fiscali demagogici – che ci farebbero fallire –, ma investimenti enormi sul gasdotto pan-africano e sui corridoi internazionali indipendenti.</p>
 
             </div>
         </article>
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 ControCorrente Finanza - La realtà oltre la propaganda.</p>
-        </div>
+        <p>&copy; 2026 Non Funziona Così - Oltre la narrazione, la realtà documentata.</p>
     </footer>
 
 </body>
