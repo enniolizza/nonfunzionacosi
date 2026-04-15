@@ -530,88 +530,15 @@
         }
 
         /* ===== RESPONSIVE ===== */
-        /* Tablet (≤1024px) */
-        @media (max-width: 1024px) {
-            .dossier-wrapper { max-width: 100%; margin: 0 16px; }
-            .content-body { padding: clamp(20px,4vw,40px) clamp(14px,4vw,50px); }
-            .confronto-wrapper { padding: clamp(18px,4vw,36px); }
-            .debunk-section { padding: clamp(18px,4vw,36px); }
-        }
-
-        /* Tablet portrait (≤768px) */
         @media (max-width: 768px) {
             .header-content { flex-direction: column; gap: 8px; }
             .nav-link { margin-left: 0; padding-left: 0; border-left: none; }
-            .date-strip { font-size: .72rem; gap: 12px; flex-direction: column; gap: 4px; }
-            .analyst-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-            .debunk-content { flex-direction: column-reverse; }
-            .debunk-image { flex: none; width: 100%; }
-            .golfo-box { padding: 18px 16px; }
-            .golfo-box .tappa { flex-direction: column; gap: 6px; }
-            .confronto-grid { grid-template-columns: 1fr; }
-            .dossier-hero { height: clamp(200px, 45vw, 350px); }
-            h1 { font-size: clamp(1.2rem, 4vw, 2.2rem); }
-            h2 { font-size: clamp(1rem, 3vw, 1.5rem); }
-            .abstract-box { padding: 16px 18px; font-size: clamp(.92rem,2.2vw,1.05rem); }
-            .live-strip { font-size: 0.72rem; padding: 5px 12px; }
-            .pdf-figure { margin: 24px 0; padding: 6px; }
-            .confronto-card { padding: 16px; }
-            .nota-verifica { padding: 14px 16px; }
-            .expert-quote { padding: 12px 16px; }
+            .date-strip { font-size: .72rem; gap: 12px; }
+            .analyst-table { display: block; overflow-x: auto; }
         }
-
-        /* Smartphone (≤480px) */
         @media (max-width: 480px) {
-            header { padding: 10px 8px; }
-            .logo-img { height: 38px; }
-            .site-title { font-size: 1rem !important; letter-spacing: 1px; }
-            .nav-link { font-size: 0.75rem; }
-            .live-strip { font-size: 0.65rem; padding: 4px 8px; line-height: 1.4; white-space: normal; }
-            .dossier-hero { height: 200px; }
-            .hero-overlay { padding: 12px 10px 16px; }
-            .badge-dossier { font-size: .65rem; padding: 3px 8px; margin-bottom: 8px; }
-            h1 { font-size: 1.15rem; line-height: 1.2; margin-bottom: 8px; }
-            .subtitle { font-size: .82rem; padding-left: 10px; }
-            .date-strip { font-size: .65rem; padding: 6px 10px; }
-            .content-body { padding: 16px 12px; }
-            .abstract-box { padding: 14px 12px; margin-bottom: 24px; font-size: .92rem; }
-            h2 { margin: 28px 0 12px; font-size: 1.05rem; padding-bottom: 6px; }
-            h3 { font-size: .9rem; margin: 18px 0 8px; }
-            p { font-size: .92rem; margin-bottom: 14px; }
-            .analyst-table th, .analyst-table td { padding: 7px 10px; font-size: .78rem; }
-            .confronto-wrapper { padding: 16px 10px; margin: 30px 0; }
-            .confronto-card { padding: 14px; }
-            .confronto-card h3 { font-size: .88rem; }
-            .confronto-card ul li { font-size: .82rem; padding-left: 16px; }
-            .confronto-conclusion { padding: 14px 12px; }
-            .confronto-conclusion p { font-size: .9rem; }
-            .debunk-section { padding: 16px 10px; margin: 30px 0; }
-            .debunk-box { padding: 14px 12px; margin-bottom: 16px; }
-            .debunk-box.fake h4, .debunk-box.real h4 { font-size: .88rem; }
-            .debunk-box p { font-size: .88rem; }
-            .expert-quote blockquote { font-size: .9rem; }
-            .expert-quote cite { font-size: .72rem; }
-            .nota-verifica { padding: 12px 12px; margin: 18px 0; }
-            .nota-verifica p { font-size: .82rem; }
-            .golfo-box { padding: 14px 12px; }
-            .golfo-box h3 { font-size: .9rem; }
-            .golfo-box .tappa-text { font-size: .82rem; }
-            ul.dossier-list { margin: 12px 0 18px 14px; font-size: .9rem; }
-            ul.dossier-list li { margin-bottom: 10px; }
-            .pdf-caption { font-size: .75rem; }
-            .fonte { font-size: .62rem; padding: 1px 5px; }
-            footer { padding: 28px 12px; }
-            .footer-logo { font-size: 1.1rem; }
-        }
-
-        /* Very small phones (≤360px) */
-        @media (max-width: 360px) {
-            .site-title { font-size: .88rem !important; }
-            h1 { font-size: 1rem; }
-            .live-strip { font-size: 0.6rem; }
-            .badge-dossier { font-size: .6rem; }
-            .dossier-hero { height: 170px; }
-            .content-body { padding: 12px 8px; }
+            header { padding: 10px 12px; }
+            h2 { font-size: 1.1rem; }
         }
     </style>
 </head>
