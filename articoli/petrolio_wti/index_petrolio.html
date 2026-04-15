@@ -250,10 +250,9 @@
         /* ===== FIGURE ===== */
         .pdf-figure {
             margin: 36px 0;
-            border: 1px solid #d4cfc1;
-            background: #fff;
-            padding: 10px;
-            box-shadow: 0 5px 14px rgba(0,0,0,.1);
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,.15);
         }
         .pdf-figure img { width:100%; height:auto; display:block; }
         .pdf-caption {
@@ -261,10 +260,9 @@
             font-size: .82rem;
             color: #555;
             text-align: center;
-            margin-top: 9px;
-            padding: 6px 10px;
+            padding: 10px 14px;
             background: var(--parchment);
-            border-top: 1px dashed var(--imperial-gold);
+            border-top: 2px solid var(--imperial-gold);
         }
 
         /* ===== NOTE BOX ===== */
@@ -443,10 +441,11 @@
         .debunk-text { flex: 1; min-width: 0; }
         .debunk-image {
             flex: 0 0 min(320px,100%);
-            border: 3px solid var(--roman-red);
-            box-shadow: 0 10px 20px rgba(0,0,0,.5);
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,.4);
         }
-        .debunk-image img { width:100%; display:block; }
+        .debunk-image img { width:100%; height:auto; display:block; }
         .debunk-box {
             background: rgba(255,255,255,.05);
             border: 1px solid rgba(197,160,89,.28);
