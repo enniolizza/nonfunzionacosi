@@ -516,7 +516,8 @@
             animation: fadeInUp 0.6s ease forwards;
         }
 
-        /* Responsive */
+        /* ===== RESPONSIVE ===== */
+        /* Tablet portrait (≤768px) */
         @media (max-width: 768px) {
             h1 { font-size: 1.9rem; }
             h2 { font-size: 1.5rem; }
@@ -529,6 +530,63 @@
             .data-table th, .data-table td { padding: 10px 12px; }
             .executive-box { padding: 20px 15px; margin: 25px 0; }
             .executive-box li { font-size: 0.95rem; line-height: 1.5; }
+            header { padding: 14px 0; }
+            .logo { font-size: 1.1rem; }
+            .article-header { margin: 35px 0 25px; }
+            .subtitle { font-size: 1.05rem; }
+            .big-number-section { padding: 35px 16px; margin: 30px 0; }
+        }
+
+        /* Smartphone (≤480px) */
+        @media (max-width: 480px) {
+            h1 { font-size: 1.5rem; line-height: 1.2; }
+            h2 { font-size: 1.25rem; padding-left: 12px; }
+            h3 { font-size: 1.1rem; }
+            .container { padding: 0 14px; }
+            .header-inner { gap: 8px; }
+            .logo { font-size: 0.95rem; letter-spacing: 1px; }
+            .back-link { font-size: 0.8rem; }
+            header { padding: 12px 0; border-top-width: 4px; }
+            .hero-image img { height: 200px; }
+            .hero-overlay { padding: 40px 14px 20px; }
+            .article-header { margin: 25px 0 18px; }
+            .badge { font-size: 0.7rem; padding: 4px 10px; }
+            .subtitle { font-size: 0.95rem; }
+            .meta { font-size: 0.8rem; padding: 10px 0; gap: 6px; }
+            .content { font-size: 0.98rem; }
+            p { margin-bottom: 16px; }
+            .executive-box { padding: 16px 12px; }
+            .executive-box h4 { font-size: 1rem; }
+            .executive-box li { font-size: 0.88rem; gap: 8px; }
+            .exec-icon { font-size: 1rem; }
+            .alert-box, .info-box { padding: 14px 14px; }
+            .alert-box h4, .info-box h4 { font-size: 0.95rem; }
+            .big-number { font-size: 2.2rem; }
+            .big-number-label { font-size: 0.95rem; }
+            .big-number-section { padding: 30px 12px; margin: 25px 0; }
+            .timeline { padding-left: 24px; margin: 25px 0; }
+            .timeline-item { padding: 14px 16px; margin-bottom: 20px; }
+            .timeline-item::before { left: -27px; width: 10px; height: 10px; }
+            .timeline-year { font-size: 1rem; }
+            .timeline-text { font-size: 0.88rem; }
+            .fraud-card { padding: 18px; }
+            .fraud-amount { font-size: 1.5rem; }
+            .fraud-desc { font-size: 0.82rem; }
+            .data-table th, .data-table td { padding: 8px 10px; font-size: 0.8rem; }
+            .sources { padding: 20px 14px; }
+            .source-list li { font-size: 0.82rem; padding: 8px 0; }
+            .editor-note { padding: 16px 14px; font-size: 0.95rem; }
+            footer { padding: 28px 14px; }
+            .footer-logo { font-size: 1.1rem; }
+        }
+
+        /* Very small phones (≤360px) */
+        @media (max-width: 360px) {
+            h1 { font-size: 1.3rem; }
+            .logo { font-size: 0.85rem; }
+            .big-number { font-size: 1.9rem; }
+            .hero-image img { height: 170px; }
+            .fraud-amount { font-size: 1.3rem; }
         }
     </style>
 </head>

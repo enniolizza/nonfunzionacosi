@@ -326,12 +326,58 @@
             margin-bottom: 10px;
         }
 
-        /* Responsive */
+        /* ===== RESPONSIVE ===== */
+        /* Tablet portrait (≤768px) */
         @media (max-width: 768px) {
             .hero h2 { font-size: 2.5rem; }
             .hero p { font-size: 1.2rem; }
+            .hero { padding: 70px 16px; }
             .method-comparison { flex-direction: column; }
+            .method-section { padding: 40px 24px; }
             .chi-siamo-intro .drop-cap { font-size: 4rem; }
+            .chi-siamo-intro h3 { font-size: 1.8rem; }
+            .virtue-grid { gap: 24px; }
+            nav ul { justify-content: flex-start; gap: 18px; }
+            main { padding: 50px 0; }
+        }
+
+        /* Smartphone (≤480px) */
+        @media (max-width: 480px) {
+            h1.site-title { font-size: 2rem; }
+            .logo-img { max-width: 70px; }
+            header { padding: 14px 0; }
+            nav ul { gap: 12px; padding: 10px 12px; }
+            nav a { font-size: 0.9rem; }
+            .hero { padding: 50px 14px; }
+            .hero h2 { font-size: 1.8rem; letter-spacing: 2px; }
+            .hero p { font-size: 1.05rem; }
+            .hero::after { height: 60px; bottom: -30px; }
+            main { padding: 40px 0; }
+            .container { padding: 0 14px; }
+            .chi-siamo-intro h3 { font-size: 1.5rem; margin-bottom: 18px; }
+            .chi-siamo-intro p { font-size: 1.02rem; }
+            .chi-siamo-intro .drop-cap { font-size: 3.2rem; padding-right: 10px; }
+            .virtue-grid { grid-template-columns: 1fr; gap: 20px; margin: 40px 0; }
+            .virtue-card { padding: 28px 20px; }
+            .virtue-card h4 { font-size: 1.5rem; }
+            .virtue-card p { font-size: 0.92rem; }
+            .method-section { padding: 30px 16px; margin-top: 40px; }
+            .method-section::before { font-size: 3rem; top: -22px; padding: 8px; }
+            .method-section h3 { font-size: 1.7rem; }
+            .method-col h4 { font-size: 1.1rem; }
+            .method-col { padding: 14px; }
+            footer { padding: 28px 14px; }
+            .footer-logo { font-size: 1.2rem; }
+        }
+
+        /* Very small phones (≤360px) */
+        @media (max-width: 360px) {
+            h1.site-title { font-size: 1.6rem; }
+            .hero h2 { font-size: 1.5rem; }
+            .hero p { font-size: 0.95rem; }
+            .chi-siamo-intro h3 { font-size: 1.3rem; }
+            .chi-siamo-intro .drop-cap { font-size: 2.8rem; }
+            nav a { font-size: 0.82rem; }
         }
     </style>
 </head>
