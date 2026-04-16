@@ -385,6 +385,76 @@
             .chi-siamo-intro .drop-cap { font-size: 2.8rem; }
             nav a { font-size: 0.82rem; }
         }
+
+        /* ===== SOCIAL NETWORKS (Footer) ===== */
+        .footer-social {
+            margin: 28px 0 18px;
+            padding-top: 22px;
+            border-top: 1px solid rgba(197, 160, 89, 0.3);
+            text-align: center;
+        }
+        .footer-social-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.78rem;
+            color: var(--imperial-gold);
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        .footer-social-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+        .social-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 9px 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.92rem;
+            letter-spacing: 0.4px;
+            color: #fff;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+            border: 1.5px solid transparent;
+            white-space: nowrap;
+        }
+        .social-pill:hover, .social-pill:focus {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+        }
+        .social-pill:focus-visible {
+            outline: 2px solid var(--imperial-gold);
+            outline-offset: 3px;
+        }
+        .social-pill svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            fill: #fff;
+        }
+        .social-pill-telegram {
+            background-color: #229ED9;
+            border-color: #1a8bbf;
+        }
+        .social-pill-telegram:hover { background-color: #1c8ec2; }
+        .social-pill-instagram {
+            background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+        .social-pill-instagram:hover { filter: brightness(1.1); }
+        @media (max-width: 480px) {
+            .footer-social { margin: 22px 0 14px; }
+            .footer-social-links { gap: 10px; }
+            .social-pill { padding: 8px 16px; font-size: 0.84rem; gap: 7px; }
+            .social-pill svg { width: 16px; height: 16px; }
+        }
+
     </style>
 </head>
 <body>
@@ -479,6 +549,32 @@
 
     <footer>
         <div class="container">
+                        <!-- ===== SEGUICI SUI SOCIAL ===== -->
+            <div class="footer-social">
+                <p class="footer-social-label">&#10022; Seguici sui Social &#10022;</p>
+                <div class="footer-social-links">
+                    <a href="https://t.me/nonfunzionacosi"
+                       class="social-pill social-pill-telegram"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Canale Telegram &#8212; Non Funziona Cos&#236;">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M11.944 0A12 12 0 1 0 24 12 12 12 0 0 0 11.944 0zm5.92 7.36-2.018 9.51c-.147.657-.54.817-1.086.508l-3-2.21-1.446 1.39c-.16.16-.295.295-.605.295l.214-3.052 5.554-5.02c.242-.215-.054-.335-.373-.12l-6.865 4.325-2.964-.926c-.643-.2-.655-.643.136-.95l11.58-4.463c.536-.194 1.004.133.833.94z"/>
+                        </svg>
+                        Telegram
+                    </a>
+                    <a href="https://www.instagram.com/_nonfunzionacosi_?igsh=dXcxcTM4cHFmbGs5&amp;utm_source=qr"
+                       class="social-pill social-pill-instagram"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Profilo Instagram &#8212; Non Funziona Cos&#236;">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                        Instagram
+                    </a>
+                </div>
+            </div>
             <div class="footer-logo">Non Funziona Così</div>
             <p>&copy; 2026 Testata Giornalistica Conservatrice Indipendente. Tutti i diritti riservati.</p>
             <p style="font-size: 0.85rem; margin-top: 10px; color: rgba(255,255,255,0.3);">«I numeri non hanno opinione politica.»</p>
