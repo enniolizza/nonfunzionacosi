@@ -10,3 +10,8 @@ desktop.ini
 # IDE
 .vscode/
 .idea/
+
+# Local verification output
+__pycache__/
+*.pyc
+qa-output/

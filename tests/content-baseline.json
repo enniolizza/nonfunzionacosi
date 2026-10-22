@@ -1,0 +1,56 @@
+{
+  "base_commit": "230281eb986a0659544debee95bcb40c0e187f0c",
+  "pages": {
+    "pagine/chi_siamo.html": {
+      "main_sha256": "d6938e9da998fec16c6cb03988f9b776bf0782b181e2761702bc6590ecd70939",
+      "sources": [
+        "https://t.me/nonfunzionacosi",
+        "https://www.instagram.com/_nonfunzionacosi_?igsh=dXcxcTM4cHFmbGs5&utm_source=qr"
+      ]
+    },
+    "articoli/petrolio_wti/index_petrolio.html": {
+      "main_sha256": "358db6f63ba0b12ce3abb4c6c87ab8cd577c0c13f829c0cbeb92fa38ae46faf3",
+      "sources": [
+        "https://www.centcom.mil/MEDIA/PRESS-RELEASES/Press-Release-View/Article/4457255/us-to-blockade-ships-entering-or-exiting-iranian-ports/",
+        "https://www.euronews.com/2026/04/13/us-blockade-of-iranian-ports-come-into-effect-as-trump-threatens-to-destroy-attack-ships",
+        "https://www.eia.gov/todayinenergy/detail.php?id=67424",
+        "https://tradingeconomics.com/commodity/brent-crude-oil",
+        "https://www.cnbc.com/2026/04/14/oil-wti-brent-as-markets-hormuz-blockade-vance-trump.html",
+        "https://www.eia.gov/outlooks/steo/",
+        "https://www.thestreet.com/investing/goldman-sachs-reset-oil-price-forecast-for-the-rest-of-2026",
+        "https://oilprice.com/Latest-Energy-News/World-News/Goldman-Another-Month-of-Hormuz-Closure-Means-Over-100-Brent-Throughout-2026.html",
+        "https://www.thestreet.com/economy/j-p-morgan-delivers-stark-warning-on-where-oil-prices-are-headed",
+        "https://www.governo.it/it/articolo/visita-arabia-saudita-qatar-ed-emirati-arabi-uniti-il-videomessaggio-del-presidente-meloni",
+        "https://www.ilpoliticoweb.it/meloni-golfo-sicurezza-energetica-arabia-saudita-qatar/",
+        "https://it.euronews.com/2026/04/04/meloni-nel-golfo-sintonia-su-gas-e-difesa-con-qatar-emirati-e-arabia-saudita-critiche-da-s",
+        "https://www.governo.it/it/articolo/visita-arabia-saudita-qatar-ed-emirati-arabi-uniti-il-videomessaggio-del-presidente-meloni",
+        "https://www.ilpost.it/2026/04/04/giorgia-meloni-visita-golfo-persico-arabia-saudita/",
+        "https://it.wikipedia.org/wiki/Piano_Mattei_per_l'Africa",
+        "https://www.info-cooperazione.it/2026/3/quattro-nuovi-paesi-nel-piano-mattei",
+        "https://www.economymagazine.it/il-piano-mattei-aggiunge-alti-4-paesi-africani-gabon-ruanda-zambia-e-congo/",
+        "https://www.aiom.fvg.it/il-vertice-italia-africa-2026-e-il-rilancio-del-piano-mattei-tra-ambizioni-geopolitiche-e-sostenibilita-strategica/",
+        "https://t.me/nonfunzionacosi",
+        "https://www.instagram.com/_nonfunzionacosi_?igsh=dXcxcTM4cHFmbGs5&utm_source=qr"
+      ]
+    },
+    "articoli/superbonus_110/index_superbonus.html": {
+      "main_sha256": "483424eb597ee7a6b53fc32c24a67f1e0481dc3383b3f49503846444baa38557",
+      "sources": [
+        "https://tg24.sky.it/economia/2024/02/14/superbonus-110-costo",
+        "https://www.lacnews24.it/economia-e-lavoro/debiti-truffe-e-cantieri-fermi-il-superbonus-ha-bruciato-150-miliardi-di-euro-lanalisi-della-corte-dei-conti-dzvrk7qm",
+        "https://www.istat.it/wp-content/uploads/2025/03/pil-indebitamento-AP-2022-2024.pdf",
+        "https://www.ilfattoquotidiano.it/2023/09/22/istat-pil-2021-rivisto-al-rialzo-all83-ma-le-spese-per-il-superbonus-si-mangiano-i-benefici-sui-conti-pubblici/7300518/",
+        "https://tg24.sky.it/cronaca/2025/11/07/siracusa-truffa-superbonus",
+        "https://www.ilrestodelcarlino.it/fermo/cronaca/truffa-col-superbonus-lavori-mai-b89d525b",
+        "https://www.repubblica.it/economia/2024/06/18/news/superbonus_bankitalia_perdita_secca_45_miliardi-423247131/",
+        "https://ediltecnico.it/modifiche-superbonus-110-decreto-semplificazioni/",
+        "https://documenti.camera.it/leg19/dossier/pdf/FI0002.pdf?_1677675800458",
+        "https://economiaxfinanza.com/2025/06/28/corte-dei-conti-conferma-il-superbonus-110-ha-creato-una-voragine-da-150-miliardi-nei-conti-pubblici-italiani/",
+        "https://www.ansa.it/sicilia/notizie/2026/02/26/frodi-su-crediti-imposta-del-superbonus-sequestrati-18-milioni_2ddacd1d-8a46-4f1b-9ea9-d3318d8f9747.html",
+        "https://biblus.acca.it/notizie/superbonus-e-crediti-inesistenti-per-la-cassazione-e-truffa-aggravata/",
+        "https://t.me/nonfunzionacosi",
+        "https://www.instagram.com/_nonfunzionacosi_?igsh=dXcxcTM4cHFmbGs5&utm_source=qr"
+      ]
+    }
+  }
+}

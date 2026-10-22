@@ -2,6 +2,8 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; script-src-attr 'none'; style-src 'self'; style-src-attr 'none'; img-src 'self'; font-src 'none'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="7B0S-crT_o89vOQX1IAslLJeo9CvdrEvWF2U3o9XGZM" />
     <meta name="description" content="Non Funziona Così — Quotidiano Indipendente Conservatore. Analizziamo i fatti, smontiamo le narrazioni, difendiamo radici e cultura. Portate i dati, al caffè pensiamo noi.">
@@ -9,27 +11,10 @@
     <link rel="canonical" href="https://enniolizza.github.io/nonfunzionacosi/">
     <!-- Reindirizzamento automatico alla vera home page -->
     <meta http-equiv="refresh" content="0; url=pagine/home.html">
-    <script>
-        window.location.replace("pagine/home.html");
-    </script>
-    <style>
-        body {
-            background-color: #1F2022;
-            color: #f1f1f1;
-            font-family: sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        p {
-            font-size: 1rem;
-            letter-spacing: 0.5px;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/shared.css">
+    <link rel="stylesheet" href="assets/css/redirect.css">
 </head>
-<body>
-    <p>Reindirizzamento in corso...</p>
+<body class="page-redirect">
+    <p>Reindirizzamento in corso... <a href="pagine/home.html">Vai alla prima pagina</a></p>
 </body>
 </html>
