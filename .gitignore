@@ -1,6 +1,7 @@
 # File pesanti non necessari per il sito web
 *.zip
 Brochure_Riforma_CMYK.pdf
+Apri_Trading_in_the_Zone.pdf
 
 # System files
 Thumbs.db
@@ -10,3 +11,8 @@ desktop.ini
 # IDE
 .vscode/
 .idea/
+
+# Local verification output
+__pycache__/
+*.pyc
+qa-output/

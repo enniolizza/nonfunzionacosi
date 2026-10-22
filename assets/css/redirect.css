@@ -1,0 +1,15 @@
+body {
+    background-color: #1F2022;
+    color: #f1f1f1;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+p {
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+a { color: #C5A059; }

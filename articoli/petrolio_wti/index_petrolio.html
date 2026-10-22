@@ -2,629 +2,17 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; script-src-attr 'none'; style-src 'self'; style-src-attr 'none'; img-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dossier verificato al 15 aprile 2026. Brent picco a $118 (fine marzo), oggi a $95-97. Blocco USA vs caos iraniano: la differenza che cambia tutto. Missione Meloni nel Golfo. Piano Mattei. Analisi JP Morgan e Goldman Sachs.">
+    <meta name="description" content="Dossier d'archivio del 15 aprile 2026. Brent al picco di $118 a fine marzo, poi a $95-97 alla data del dossier. Blocco USA, missione Meloni nel Golfo, Piano Mattei, analisi JP Morgan e Goldman Sachs nel contesto dell'epoca.">
     <title>Dossier: Petrolio, Blocco Hormuz e Piano Mattei — 15 Aprile 2026 | Non Funziona Così</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
-    <style>
-        /* ===== VARIABILI ===== */
-        :root {
-            --roman-red:     #8B1E19;
-            --imperial-gold: #C5A059;
-            --marble-white:  #e9e6dc;
-            --dark-slate:    #1F2022;
-            --parchment:     #f4f1ea;
-            --ink-black:     #111;
-        }
-
-        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Playfair Display', serif;
-            background-color: var(--dark-slate);
-            color: var(--ink-black);
-            line-height: 1.75;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* ===== HEADER ===== */
-        header {
-            background-color: var(--marble-white);
-            border-top: 12px solid var(--roman-red);
-            border-bottom: 4px solid var(--roman-red);
-            padding: 14px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 200;
-            box-shadow: 0 4px 15px rgba(0,0,0,.4);
-        }
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .logo-img {
-            height: 52px;
-            width: auto;
-            border: 2px solid var(--imperial-gold);
-            border-radius: 4px;
-        }
-        .site-title {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(1.1rem, 3.5vw, 2rem);
-            color: var(--dark-slate);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-decoration: none;
-        }
-        .nav-link {
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            font-size: 0.82rem;
-            color: var(--roman-red);
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: .8px;
-            border-left: 2px solid var(--imperial-gold);
-            padding-left: 18px;
-            margin-left: 8px;
-            transition: color .2s;
-        }
-        .nav-link:hover { color: var(--imperial-gold); }
-
-        /* ===== LIVE BADGE ===== */
-        .live-strip {
-            background: var(--roman-red);
-            color: #fff;
-            text-align: center;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 1.2px;
-            padding: 6px 20px;
-            text-transform: uppercase;
-        }
-        .live-strip .brent-val { color: var(--imperial-gold); }
-
-        /* ===== WRAPPER ===== */
-        main { padding: 30px 16px 0; }
-
-        .dossier-wrapper {
-            max-width: 960px;
-            margin: 0 auto;
-            background-color: var(--parchment);
-            border-top: 6px solid var(--roman-red);
-            border-bottom: 6px solid var(--imperial-gold);
-            box-shadow: 0 24px 48px rgba(0,0,0,.55);
-            overflow: hidden;
-        }
-
-        /* ===== HERO ===== */
-        .dossier-hero {
-            position: relative;
-            width: 100%;
-            height: clamp(260px, 48vw, 450px);
-            background-image: url('images/wti_hero_cover.png');
-            background-size: cover;
-            background-position: center;
-            overflow: hidden;
-        }
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(31,32,34,1) 0%, rgba(31,32,34,.65) 55%, transparent 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: clamp(18px,4vw,44px) clamp(16px,5vw,40px) 28px;
-            color: var(--marble-white);
-        }
-        .badge-dossier {
-            display: inline-block;
-            font-family: 'Inter', sans-serif;
-            background: var(--roman-red);
-            color: #fff;
-            font-size: .75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            padding: 4px 12px;
-            margin-bottom: 12px;
-            border: 1px solid var(--imperial-gold);
-            width: fit-content;
-        }
-        h1 {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(1.4rem, 4.2vw, 2.75rem);
-            line-height: 1.15;
-            color: var(--imperial-gold);
-            text-shadow: 0 2px 6px rgba(0,0,0,.85);
-            margin-bottom: 14px;
-        }
-        .subtitle {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(.88rem, 2.2vw, 1.05rem);
-            color: #dcdcdc;
-            border-left: 3px solid var(--roman-red);
-            padding-left: 14px;
-            max-width: 780px;
-        }
-
-        /* ===== DATA STRIP ===== */
-        .date-strip {
-            background: var(--dark-slate);
-            color: rgba(255,255,255,.55);
-            font-family: 'Inter', sans-serif;
-            font-size: .78rem;
-            letter-spacing: .8px;
-            padding: 8px clamp(16px,6vw,60px);
-            border-bottom: 1px solid rgba(197,160,89,.3);
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .date-strip span { color: var(--imperial-gold); font-weight: 600; }
-
-        /* ===== CONTENT ===== */
-        .content-body {
-            padding: clamp(22px,5vw,54px) clamp(16px,6vw,62px);
-        }
-
-        .abstract-box {
-            background: var(--marble-white);
-            border: 1px solid var(--imperial-gold);
-            border-left: 5px solid var(--roman-red);
-            padding: 20px 24px;
-            margin-bottom: 40px;
-            font-style: italic;
-            font-size: clamp(.98rem,2.4vw,1.1rem);
-            color: var(--dark-slate);
-            line-height: 1.7;
-        }
-
-        h2 {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(1.1rem, 3.2vw, 1.85rem);
-            color: var(--roman-red);
-            border-bottom: 2px solid var(--imperial-gold);
-            padding-bottom: 8px;
-            margin: 44px 0 18px;
-            text-transform: uppercase;
-            word-break: break-word;
-        }
-        h3 {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(.95rem, 2.2vw, 1.22rem);
-            font-weight: 700;
-            color: var(--dark-slate);
-            margin: 28px 0 12px;
-            text-transform: uppercase;
-            letter-spacing: .5px;
-        }
-        p {
-            margin-bottom: 20px;
-            font-size: clamp(.98rem, 2.3vw, 1.13rem);
-            color: #2b2b2b;
-            text-align: left;
-        }
-        strong { color: var(--dark-slate); font-weight: 700; }
-        em { color: #444; }
-
-        .highlight-data {
-            color: var(--roman-red);
-            font-weight: 700;
-            font-family: 'Inter', sans-serif;
-        }
-
-        /* fonte badge */
-        .fonte {
-            display: inline-block;
-            font-family: 'Inter', sans-serif;
-            font-size: .68rem;
-            font-weight: 700;
-            color: var(--roman-red);
-            background: rgba(139,30,25,.07);
-            border: 1px solid rgba(139,30,25,.22);
-            border-radius: 3px;
-            padding: 1px 7px;
-            margin-left: 5px;
-            vertical-align: middle;
-            text-transform: uppercase;
-            letter-spacing: .5px;
-            text-decoration: none;
-            transition: background .2s;
-        }
-        .fonte:hover { background: rgba(139,30,25,.18); }
-
-        /* ===== FIGURE ===== */
-        .pdf-figure {
-            margin: 36px 0;
-            border-radius: 6px;
-            overflow: hidden;
-            box-shadow: 0 8px 24px rgba(0,0,0,.15);
-        }
-        .pdf-figure img { width:100%; height:auto; display:block; }
-        .pdf-caption {
-            font-family: 'Inter', sans-serif;
-            font-size: .82rem;
-            color: #555;
-            text-align: center;
-            padding: 10px 14px;
-            background: var(--parchment);
-            border-top: 2px solid var(--imperial-gold);
-        }
-
-        /* ===== NOTE BOX ===== */
-        .nota-verifica {
-            background: #fff8e1;
-            border: 1.5px solid #f59e0b;
-            border-left: 6px solid #d97706;
-            padding: 18px 22px;
-            margin: 28px 0;
-            border-radius: 0 4px 4px 0;
-        }
-        .nota-verifica h4 {
-            font-family: 'Inter', sans-serif;
-            font-size: .75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #92400e;
-            margin-bottom: 7px;
-        }
-        .nota-verifica p {
-            font-family: 'Inter', sans-serif;
-            font-size: .9rem;
-            color: #78350f;
-            margin-bottom: 0;
-        }
-
-        /* ===== QUOTE EXPERT ===== */
-        .expert-quote {
-            border-left: 4px solid var(--imperial-gold);
-            padding: 14px 20px;
-            margin: 28px 0;
-            background: rgba(197,160,89,.06);
-        }
-        .expert-quote blockquote {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: clamp(.95rem,2.2vw,1.08rem);
-            color: var(--dark-slate);
-            margin-bottom: 7px;
-        }
-        .expert-quote cite {
-            font-family: 'Inter', sans-serif;
-            font-size: .78rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--roman-red);
-            letter-spacing: .5px;
-        }
-
-        /* ===== ANALYST TABLE ===== */
-        .analyst-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 28px 0;
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(.82rem, 1.9vw, .92rem);
-        }
-        .analyst-table th {
-            background: var(--dark-slate);
-            color: var(--imperial-gold);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: .7px;
-            padding: 10px 14px;
-            text-align: left;
-            border: 1px solid rgba(197,160,89,.3);
-        }
-        .analyst-table td {
-            padding: 10px 14px;
-            border: 1px solid #d4cfc1;
-            color: #2b2b2b;
-            vertical-align: top;
-        }
-        .analyst-table tr:nth-child(even) td { background: var(--marble-white); }
-        .analyst-table .up   { color: #b91c1c; font-weight: 700; }
-        .analyst-table .down { color: #15803d; font-weight: 700; }
-
-        /* ===== CONFRONTO BLOCK (CAOS vs CONTROLLO) ===== */
-        .confronto-wrapper {
-            background: var(--dark-slate);
-            color: var(--marble-white);
-            padding: clamp(22px,5vw,42px);
-            margin: 50px 0;
-            border-top: 4px solid var(--roman-red);
-            border-bottom: 4px solid var(--imperial-gold);
-        }
-        .confronto-wrapper h2 {
-            color: var(--imperial-gold);
-            border-bottom-color: var(--roman-red);
-            margin-top: 0;
-        }
-        .confronto-wrapper p { color: var(--marble-white); }
-        .confronto-wrapper p strong { color: var(--imperial-gold); }
-
-        .confronto-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin-top: 28px;
-        }
-        @media (max-width: 640px) {
-            .confronto-grid { grid-template-columns: 1fr; }
-        }
-        .confronto-card {
-            background: rgba(255,255,255,.06);
-            border: 1px solid rgba(197,160,89,.28);
-            border-radius: 4px;
-            padding: 22px;
-        }
-        .confronto-card h3 {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(.95rem,2.5vw,1.1rem);
-            text-transform: uppercase;
-            margin-bottom: 14px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid rgba(197,160,89,.35);
-        }
-        .confronto-card.iraniano h3 { color: #fca5a5; }
-        .confronto-card.americano h3 { color: #86efac; }
-        .confronto-card ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .confronto-card ul li {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(.85rem,2vw,.95rem);
-            color: #ddd;
-            margin-bottom: 8px;
-            padding-left: 18px;
-            position: relative;
-        }
-        .confronto-card.iraniano ul li::before { content: "⚠ "; position:absolute; left:0; color: #fca5a5; }
-        .confronto-card.americano ul li::before { content: "✓ "; position:absolute; left:0; color: #86efac; }
-
-        .confronto-conclusion {
-            background: rgba(197,160,89,.1);
-            border: 1px solid rgba(197,160,89,.4);
-            border-radius: 4px;
-            padding: 20px 24px;
-            margin-top: 28px;
-        }
-        .confronto-conclusion p {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: clamp(.95rem,2.3vw,1.08rem);
-            color: var(--marble-white);
-            margin-bottom: 0;
-        }
-        .confronto-conclusion strong { color: var(--imperial-gold); }
-
-        /* ===== DEBUNKING ROOM ===== */
-        .debunk-section {
-            background: #28292c;
-            color: var(--marble-white);
-            padding: clamp(22px,5vw,42px);
-            margin: 50px 0;
-            border-top: 4px solid var(--roman-red);
-            border-bottom: 4px solid var(--imperial-gold);
-        }
-        .debunk-section h2 {
-            color: var(--imperial-gold);
-            border-bottom-color: var(--roman-red);
-            margin-top: 0;
-        }
-        .debunk-section p { color: #ddd; }
-        .debunk-section p strong { color: var(--imperial-gold); }
-        .debunk-section p em { color: #fff; }
-
-        .debunk-content {
-            display: flex;
-            gap: 28px;
-            align-items: flex-start;
-        }
-        @media (max-width: 780px) { .debunk-content { flex-direction: column-reverse; } }
-        .debunk-text { flex: 1; min-width: 0; }
-        .debunk-image {
-            flex: 0 0 min(320px,100%);
-            border-radius: 6px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,.4);
-        }
-        .debunk-image img { width:100%; height:auto; display:block; }
-        .debunk-box {
-            background: rgba(255,255,255,.05);
-            border: 1px solid rgba(197,160,89,.28);
-            padding: 20px 24px;
-            margin-bottom: 22px;
-            border-radius: 4px;
-        }
-        .debunk-box.fake h4 { color: #f87171; font-family:'Inter',sans-serif; font-size: clamp(.9rem,2.2vw,1.05rem); margin-bottom: 8px; }
-        .debunk-box.real h4 { color: #4ade80; font-family:'Inter',sans-serif; font-size: clamp(.9rem,2.2vw,1.05rem); margin-bottom: 8px; }
-        .debunk-box p { font-family:'Playfair Display',serif; margin-bottom:0; text-align:left; font-size: clamp(.95rem,2.2vw,1.08rem); }
-
-        /* ===== MELONI GOLFO BOX ===== */
-        .golfo-box {
-            background: linear-gradient(135deg, #1a2535 0%, #1F2022 100%);
-            border: 1px solid rgba(197,160,89,.4);
-            border-left: 5px solid var(--imperial-gold);
-            padding: 24px 28px;
-            margin: 36px 0;
-            border-radius: 0 4px 4px 0;
-        }
-        .golfo-box h3 {
-            color: var(--imperial-gold);
-            font-family: 'Cinzel', serif;
-            font-size: clamp(.95rem,2.5vw,1.2rem);
-            text-transform: uppercase;
-            margin-bottom: 14px;
-        }
-        .golfo-box p {
-            color: #ddd;
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(.88rem,2.1vw,1rem);
-            margin-bottom: 10px;
-        }
-        .golfo-box .tappa {
-            display: flex;
-            gap: 14px;
-            align-items: baseline;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(197,160,89,.18);
-        }
-        .golfo-box .tappa:last-of-type { border-bottom: none; }
-        .golfo-box .tappa-flag { font-size: 1.3rem; }
-        .golfo-box .tappa-text {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(.82rem,1.9vw,.94rem);
-            color: #ccc;
-        }
-        .golfo-box .tappa-text strong { color: var(--imperial-gold); }
-
-        /* ===== PIANO MATTEI LIST ===== */
-        ul.dossier-list {
-            margin: 18px 0 28px 22px;
-            font-size: clamp(.97rem,2.3vw,1.1rem);
-            color: #2b2b2b;
-        }
-        ul.dossier-list li {
-            margin-bottom: 14px;
-            padding-left: 6px;
-        }
-        ul.dossier-list li::marker {
-            color: var(--roman-red);
-            content: '♦ ';
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            background-color: #1a1d24;
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 0;
-            color: #e5e7eb;
-            border-top: 3px solid var(--roman-red);
-        }
-        .footer-logo {
-            font-family: 'Cinzel', serif;
-            font-size: 1.4rem;
-            color: var(--imperial-gold);
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        /* Override del selettore globale p { color: #2b2b2b; text-align: left }
-           che altrimenti sovrascrive le proprietà ereditate dal footer */
-        footer p {
-            color: #e5e7eb;
-            text-align: center;
-            margin-bottom: 5px;
-            font-size: 1rem;
-        }
-        /* Stesso override per la label social che è anch'essa un <p> */
-        .footer-social-label {
-            text-align: center !important;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .header-content { flex-direction: column; gap: 8px; }
-            .nav-link { margin-left: 0; padding-left: 0; border-left: none; }
-            .date-strip { font-size: .72rem; gap: 12px; }
-            .analyst-table { display: block; overflow-x: auto; }
-        }
-        @media (max-width: 480px) {
-            header { padding: 10px 12px; }
-            h2 { font-size: 1.1rem; }
-        }
-
-        /* ===== SOCIAL NETWORKS (Footer) ===== */
-        .footer-social {
-            margin: 28px 0 18px;
-            padding-top: 22px;
-            border-top: 1px solid rgba(197, 160, 89, 0.3);
-            text-align: center;
-        }
-        .footer-social-label {
-            font-family: 'Cinzel', serif;
-            font-size: 0.78rem;
-            color: var(--imperial-gold);
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            margin-bottom: 14px;
-        }
-        .footer-social-links {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-        .social-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            padding: 9px 22px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            font-size: 0.92rem;
-            letter-spacing: 0.4px;
-            color: #fff;
-            transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
-            border: 1.5px solid transparent;
-            white-space: nowrap;
-        }
-        .social-pill:hover, .social-pill:focus {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
-        }
-        .social-pill:focus-visible {
-            outline: 2px solid var(--imperial-gold);
-            outline-offset: 3px;
-        }
-        .social-pill svg {
-            width: 18px;
-            height: 18px;
-            flex-shrink: 0;
-            fill: #fff;
-        }
-        .social-pill-telegram {
-            background-color: #229ED9;
-            border-color: #1a8bbf;
-        }
-        .social-pill-telegram:hover { background-color: #1c8ec2; }
-        .social-pill-instagram {
-            background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            border-color: rgba(255, 255, 255, 0.15);
-        }
-        .social-pill-instagram:hover { filter: brightness(1.1); }
-        @media (max-width: 480px) {
-            .footer-social { margin: 22px 0 14px; }
-            .footer-social-links { gap: 10px; }
-            .social-pill { padding: 8px 16px; font-size: 0.84rem; gap: 7px; }
-            .social-pill svg { width: 16px; height: 16px; }
-        }
-
-    </style>
+    <link rel="stylesheet" href="../../assets/css/shared.css">
+    <link rel="stylesheet" href="../../assets/css/petrolio.css">
+    <link rel="canonical" href="https://enniolizza.github.io/nonfunzionacosi/articoli/petrolio_wti/index_petrolio.html">
 </head>
-<body>
+<body class="page-petrolio">
+<a href="#main-content" class="skip-link">Salta al contenuto principale</a>
 
 <!-- ===== HEADER ===== -->
 <header>
@@ -637,16 +25,21 @@
     </div>
 </header>
 
-<!-- ===== LIVE STRIP ===== -->
+<aside class="archive-notice" aria-label="Nota di archivio">
+    <strong>Articolo d'archivio · 15 aprile 2026.</strong>
+    Prezzi, dati e scenario geopolitico si riferiscono a quella data. Il testo originale è conservato; le quotazioni non sono aggiornate in tempo reale.
+</aside>
+
+<!-- ===== HISTORICAL DATA STRIP ===== -->
 <div class="live-strip">
-    🔴 AGGIORNATO IN TEMPO REALE — 15 Aprile 2026 &nbsp;|&nbsp;
+    DATI AL 15 APRILE 2026 &nbsp;|&nbsp;
     Brent: <span class="brent-val">~$95–97/bbl</span> &nbsp;|&nbsp;
     WTI: <span class="brent-val">~$91/bbl</span> &nbsp;|&nbsp;
-    Blocco navale CENTCOM porti iraniani: <span class="brent-val">ATTIVO</span>
+    Blocco navale CENTCOM porti iraniani: <span class="brent-val">ATTIVO A QUELLA DATA</span>
 </div>
 
 <!-- ===== MAIN ===== -->
-<main>
+<main id="main-content">
 <article class="dossier-wrapper">
 
     <!-- HERO -->
@@ -677,11 +70,11 @@
 
         <p>La narrazione della de-escalation si è ufficialmente frantumata. I negoziati di <strong>Islamabad</strong> — guidati dal Vicepresidente USA <strong>JD Vance</strong> con Steve Witkoff e Jared Kushner, sul fronte iraniano rappresentato dal Presidente del Parlamento Qalibaf e dal Ministro degli Esteri Araghchi — sono collassati dopo 21 ore di trattative. Il <strong>12 aprile 2026</strong> Vance ha dichiarato la fine dei colloqui.</p>
 
-        <p>Il giorno successivo, il Comando Centrale degli Stati Uniti (<strong>CENTCOM</strong>) ha avviato il blocco navale dei porti iraniani, entrato in vigore il <span class="highlight-data">13 aprile 2026 alle 10:00 ET</span>. Per implementarlo la US Navy ha dispiegato due Carrier Strike Group — <strong>USS Gerald R. Ford CSG</strong> e <strong>USS Abraham Lincoln CSG</strong> — affiancati da cacciatorpedinieri e unità per lo sminamento. <a href="https://www.centcom.mil/MEDIA/PRESS-RELEASES/Press-Release-View/Article/4457255/us-to-blockade-ships-entering-or-exiting-iranian-ports/" class="fonte" target="_blank">CENTCOM.mil</a></p>
+        <p>Il giorno successivo, il Comando Centrale degli Stati Uniti (<strong>CENTCOM</strong>) ha avviato il blocco navale dei porti iraniani, entrato in vigore il <span class="highlight-data">13 aprile 2026 alle 10:00 ET</span>. Per implementarlo la US Navy ha dispiegato due Carrier Strike Group — <strong>USS Gerald R. Ford CSG</strong> e <strong>USS Abraham Lincoln CSG</strong> — affiancati da cacciatorpedinieri e unità per lo sminamento. <a href="https://www.centcom.mil/MEDIA/PRESS-RELEASES/Press-Release-View/Article/4457255/us-to-blockade-ships-entering-or-exiting-iranian-ports/" class="fonte" target="_blank" rel="noopener noreferrer">CENTCOM.mil</a></p>
 
         <div class="nota-verifica">
             <h4>📌 Precisazione tecnica sul perimetro del blocco</h4>
-            <p>Il CENTCOM ha chiarito ufficialmente che le forze USA <em>"will not impede freedom of navigation for vessels transiting the Strait of Hormuz to and from non-Iranian ports."</em> Il blocco colpisce esclusivamente navi dirette verso o provenienti da <strong>porti iraniani</strong>, non tutto il traffico dello Stretto. Una distinzione legale rilevante, ma che non cambia la sostanza: lo Stretto rimane de facto ostruito dalle mine iraniane e dall'instabilità bellica. <a href="https://www.euronews.com/2026/04/13/us-blockade-of-iranian-ports-come-into-effect-as-trump-threatens-to-destroy-attack-ships" class="fonte" target="_blank">Euronews, 13 apr.</a></p>
+            <p>Il CENTCOM ha chiarito ufficialmente che le forze USA <em>"will not impede freedom of navigation for vessels transiting the Strait of Hormuz to and from non-Iranian ports."</em> Il blocco colpisce esclusivamente navi dirette verso o provenienti da <strong>porti iraniani</strong>, non tutto il traffico dello Stretto. Una distinzione legale rilevante, ma che non cambia la sostanza: lo Stretto rimane de facto ostruito dalle mine iraniane e dall'instabilità bellica. <a href="https://www.euronews.com/2026/04/13/us-blockade-of-iranian-ports-come-into-effect-as-trump-threatens-to-destroy-attack-ships" class="fonte" target="_blank" rel="noopener noreferrer">Euronews, 13 apr.</a></p>
         </div>
 
         <div class="pdf-figure">
@@ -692,7 +85,7 @@
         <!-- SEZIONE 2: NUMERI EIA -->
         <h3>Lo Shock dell'Offerta: Dati Ufficiali EIA al 15 Aprile 2026</h3>
 
-        <p>L'<strong>EIA (U.S. Energy Information Administration)</strong> certifica nel suo rapporto trimestrale Q1 2026 un rialzo dei prezzi senza precedenti dal 1988 in termini reali: <a href="https://www.eia.gov/todayinenergy/detail.php?id=67424" class="fonte" target="_blank">EIA Q1 Review</a></p>
+        <p>L'<strong>EIA (U.S. Energy Information Administration)</strong> certifica nel suo rapporto trimestrale Q1 2026 un rialzo dei prezzi senza precedenti dal 1988 in termini reali: <a href="https://www.eia.gov/todayinenergy/detail.php?id=67424" class="fonte" target="_blank" rel="noopener noreferrer">EIA Q1 Review</a></p>
 
         <table class="analyst-table">
             <thead>
@@ -755,9 +148,9 @@
             </tbody>
         </table>
 
-        <p>Attualmente il Brent tratta intorno ai <span class="highlight-data">$95–97/barile</span>, con il WTI a circa <span class="highlight-data">$91</span>. Il calo rispetto al picco riflette l'ottimismo del mercato sulla possibilità che i negoziati riprendano entro i prossimi giorni prima della scadenza del cessate il fuoco del 22 aprile. L'IEA ha avvertito che questo rimbalzo potrebbe essere prematuro: la chiusura prolungata dello Stretto minaccia di annullare la crescita globale della domanda petrolifera — sarebbe il primo calo annuale dal 2020. <a href="https://tradingeconomics.com/commodity/brent-crude-oil" class="fonte" target="_blank">TradingEconomics, 15 apr.</a> <a href="https://www.cnbc.com/2026/04/14/oil-wti-brent-as-markets-hormuz-blockade-vance-trump.html" class="fonte" target="_blank">CNBC, 14 apr.</a></p>
+        <p>Attualmente il Brent tratta intorno ai <span class="highlight-data">$95–97/barile</span>, con il WTI a circa <span class="highlight-data">$91</span>. Il calo rispetto al picco riflette l'ottimismo del mercato sulla possibilità che i negoziati riprendano entro i prossimi giorni prima della scadenza del cessate il fuoco del 22 aprile. L'IEA ha avvertito che questo rimbalzo potrebbe essere prematuro: la chiusura prolungata dello Stretto minaccia di annullare la crescita globale della domanda petrolifera — sarebbe il primo calo annuale dal 2020. <a href="https://tradingeconomics.com/commodity/brent-crude-oil" class="fonte" target="_blank" rel="noopener noreferrer">TradingEconomics, 15 apr.</a> <a href="https://www.cnbc.com/2026/04/14/oil-wti-brent-as-markets-hormuz-blockade-vance-trump.html" class="fonte" target="_blank" rel="noopener noreferrer">CNBC, 14 apr.</a></p>
 
-        <p>Sul fronte della produzione, l'EIA April STEO stima che Iraq, Arabia Saudita, Kuwait, EAU, Qatar e Bahrein abbiano collettivamente ridotto la produzione di <span class="highlight-data">7,5 milioni di barili/giorno a marzo</span>, con una proiezione di <span class="highlight-data">9,1 milioni b/g in aprile</span>. <a href="https://www.eia.gov/outlooks/steo/" class="fonte" target="_blank">EIA STEO Apr. 2026</a></p>
+        <p>Sul fronte della produzione, l'EIA April STEO stima che Iraq, Arabia Saudita, Kuwait, EAU, Qatar e Bahrein abbiano collettivamente ridotto la produzione di <span class="highlight-data">7,5 milioni di barili/giorno a marzo</span>, con una proiezione di <span class="highlight-data">9,1 milioni b/g in aprile</span>. <a href="https://www.eia.gov/outlooks/steo/" class="fonte" target="_blank" rel="noopener noreferrer">EIA STEO Apr. 2026</a></p>
 
         <!-- SEZIONE 3: ANALISTI JP MORGAN E GOLDMAN -->
         <h2>📊 Cosa Dicono i Grandi Banche: JP Morgan e Goldman Sachs</h2>
@@ -766,14 +159,14 @@
 
         <div class="expert-quote">
             <blockquote>"Il più grande shock di offerta nella storia del mercato globale del greggio."</blockquote>
-            <cite>— Goldman Sachs, commodities analyst Daan Struyven, marzo 2026 <a href="https://www.thestreet.com/investing/goldman-sachs-reset-oil-price-forecast-for-the-rest-of-2026" class="fonte" target="_blank">TheStreet</a></cite>
+            <cite>— Goldman Sachs, commodities analyst Daan Struyven, marzo 2026 <a href="https://www.thestreet.com/investing/goldman-sachs-reset-oil-price-forecast-for-the-rest-of-2026" class="fonte" target="_blank" rel="noopener noreferrer">TheStreet</a></cite>
         </div>
 
-        <p><strong>Goldman Sachs</strong> ha rivisto più volte al rialzo le sue previsioni nel corso della crisi. Il modello di base ora assume che i flussi attraverso Hormuz restino al 5–10% dei livelli normali per circa 6 settimane, seguito da un recupero graduale. In questo scenario, Goldman avverte che il Brent potrebbe <strong>mediare sopra i $100/barile per tutto il 2026</strong> se la chiusura si prolunga ulteriormente. Lo scenario estremo — chiusura di 5-6 mesi — vedrebbe il Brent spingersi verso i <span class="highlight-data">$135/barile</span>, con un impatto inflattivo che renderebbe quasi impossibili i tagli dei tassi da parte della Federal Reserve. <a href="https://oilprice.com/Latest-Energy-News/World-News/Goldman-Another-Month-of-Hormuz-Closure-Means-Over-100-Brent-Throughout-2026.html" class="fonte" target="_blank">OilPrice/Bloomberg</a></p>
+        <p><strong>Goldman Sachs</strong> ha rivisto più volte al rialzo le sue previsioni nel corso della crisi. Il modello di base ora assume che i flussi attraverso Hormuz restino al 5–10% dei livelli normali per circa 6 settimane, seguito da un recupero graduale. In questo scenario, Goldman avverte che il Brent potrebbe <strong>mediare sopra i $100/barile per tutto il 2026</strong> se la chiusura si prolunga ulteriormente. Lo scenario estremo — chiusura di 5-6 mesi — vedrebbe il Brent spingersi verso i <span class="highlight-data">$135/barile</span>, con un impatto inflattivo che renderebbe quasi impossibili i tagli dei tassi da parte della Federal Reserve. <a href="https://oilprice.com/Latest-Energy-News/World-News/Goldman-Another-Month-of-Hormuz-Closure-Means-Over-100-Brent-Throughout-2026.html" class="fonte" target="_blank" rel="noopener noreferrer">OilPrice/Bloomberg</a></p>
 
         <div class="expert-quote">
             <blockquote>"Il Brent potrebbe sovra-performare verso i $150 al barile se lo Stretto di Hormuz resta effettivamente chiuso fino a metà maggio."</blockquote>
-            <cite>— JP Morgan Commodities Research, aprile 2026 <a href="https://www.thestreet.com/economy/j-p-morgan-delivers-stark-warning-on-where-oil-prices-are-headed" class="fonte" target="_blank">TheStreet</a></cite>
+            <cite>— JP Morgan Commodities Research, aprile 2026 <a href="https://www.thestreet.com/economy/j-p-morgan-delivers-stark-warning-on-where-oil-prices-are-headed" class="fonte" target="_blank" rel="noopener noreferrer">TheStreet</a></cite>
         </div>
 
         <p><strong>JP Morgan</strong> ha emesso il warning più aggressivo: la banca newyorkese avverte che uno scenario di chiusura prolungata fino a metà maggio trasformerebbe l'attuale shock regionale nel più grande shock energetico della storia moderna, con ricadute sistemiche su inflazione, tassi e mercati finanziari globali. Solo un mese fa, la stessa JP Morgan prevedeva il Brent in recupero al range dei $60 entro fine 2026.</p>
@@ -825,7 +218,7 @@
 
             <div class="confronto-grid">
                 <div class="confronto-card iraniano">
-                    <h3>🇮🇷 Fase 1: Il Blocco Iraniano<br><small style="font-size:.8em;color:#fca5a5;">(28 feb. → 12 apr. 2026)</small></h3>
+                    <h3>🇮🇷 Fase 1: Il Blocco Iraniano<br><small class="scenario-risk-label">(28 feb. → 12 apr. 2026)</small></h3>
                     <ul>
                         <li>Mine, attacchi sporadici, sequestri, minacce</li>
                         <li>Alcune navi passavano, altre no</li>
@@ -835,11 +228,11 @@
                         <li>Cina e altri Paesi continuavano ad acquistare petrolio iraniano</li>
                         <li>Prezzi alti per <em>paura</em> e incertezza</li>
                     </ul>
-                    <p style="margin-top:14px; font-style:italic; color:#fca5a5; font-size:.85rem;">"Forse passi. Forse vieni attaccato. A tuo rischio e pericolo."</p>
+                    <p class="scenario-risk-note">"Forse passi. Forse vieni attaccato. A tuo rischio e pericolo."</p>
                 </div>
 
                 <div class="confronto-card americano">
-                    <h3>🇺🇸 Fase 2: Il Blocco USA<br><small style="font-size:.8em;color:#86efac;">(13 apr. 2026 → oggi)</small></h3>
+                    <h3>🇺🇸 Fase 2: Il Blocco USA<br><small class="scenario-positive-label">(13 apr. 2026 → oggi)</small></h3>
                     <ul>
                         <li>Regole chiare: blocco dei porti iraniani</li>
                         <li>Selezione militare di chi può passare</li>
@@ -849,7 +242,7 @@
                         <li>Forza una scelta geopolitica a Cina e India</li>
                         <li>Prezzi alti per <em>decisione strutturale</em></li>
                     </ul>
-                    <p style="margin-top:14px; font-style:italic; color:#86efac; font-size:.85rem;">"Passi SOLO se ti è permesso dalla Marina degli Stati Uniti."</p>
+                    <p class="scenario-positive-note">"Passi SOLO se ti è permesso dalla Marina degli Stati Uniti."</p>
                 </div>
             </div>
 
@@ -861,7 +254,7 @@
         <!-- SEZIONE 5: MISSIONE MELONI GOLFO -->
         <h2>🇮🇹 Meloni nel Golfo: Il Primo Leader Occidentale a Esserci</h2>
 
-        <p>Mentre i leader europei rimanevano a guardare, l'Italia agiva. Il <strong>3-4 aprile 2026</strong>, la Presidente del Consiglio <strong>Giorgia Meloni</strong> ha compiuto una missione diplomatica a sorpresa nel Golfo Persico — la prima di un leader occidentale nell'area dall'inizio del conflitto — visitando in successione Arabia Saudita, Qatar ed Emirati Arabi Uniti. <a href="https://www.governo.it/it/articolo/visita-arabia-saudita-qatar-ed-emirati-arabi-uniti-il-videomessaggio-del-presidente-meloni" class="fonte" target="_blank">Governo.it</a></p>
+        <p>Mentre i leader europei rimanevano a guardare, l'Italia agiva. Il <strong>3-4 aprile 2026</strong>, la Presidente del Consiglio <strong>Giorgia Meloni</strong> ha compiuto una missione diplomatica a sorpresa nel Golfo Persico — la prima di un leader occidentale nell'area dall'inizio del conflitto — visitando in successione Arabia Saudita, Qatar ed Emirati Arabi Uniti. <a href="https://www.governo.it/it/articolo/visita-arabia-saudita-qatar-ed-emirati-arabi-uniti-il-videomessaggio-del-presidente-meloni" class="fonte" target="_blank" rel="noopener noreferrer">Governo.it</a></p>
 
         <div class="golfo-box">
             <h3>🗺️ Le Tre Tappe della Missione Golfo (3–4 Aprile 2026)</h3>
@@ -887,10 +280,10 @@
                 </div>
             </div>
 
-            <p style="margin-top:16px;">La missione era stata tenuta segreta fino all'atterraggio a Gedda per ragioni di sicurezza — nello stesso giorno 47 droni e 18 missili balistici iraniani avevano colpito il territorio emiratino. <a href="https://www.ilpoliticoweb.it/meloni-golfo-sicurezza-energetica-arabia-saudita-qatar/" class="fonte" target="_blank">IlPoliticoWeb</a> <a href="https://it.euronews.com/2026/04/04/meloni-nel-golfo-sintonia-su-gas-e-difesa-con-qatar-emirati-e-arabia-saudita-critiche-da-s" class="fonte" target="_blank">Euronews</a></p>
+            <p class="paragraph-spaced">La missione era stata tenuta segreta fino all'atterraggio a Gedda per ragioni di sicurezza — nello stesso giorno 47 droni e 18 missili balistici iraniani avevano colpito il territorio emiratino. <a href="https://www.ilpoliticoweb.it/meloni-golfo-sicurezza-energetica-arabia-saudita-qatar/" class="fonte" target="_blank" rel="noopener noreferrer">IlPoliticoWeb</a> <a href="https://it.euronews.com/2026/04/04/meloni-nel-golfo-sintonia-su-gas-e-difesa-con-qatar-emirati-e-arabia-saudita-critiche-da-s" class="fonte" target="_blank" rel="noopener noreferrer">Euronews</a></p>
         </div>
 
-        <p>Le parole di Meloni nel videomessaggio ufficiale da Palazzo Chigi sono cristalline: <em>"Per l'Italia è importante, in una fase così difficile, essere presente nei luoghi dove si decide una parte fondamentale della nostra sicurezza e anche del nostro futuro economico. Questa missione è la prima di un leader europeo nel Golfo dall'inizio di questa nuova fase del conflitto."</em> <a href="https://www.governo.it/it/articolo/visita-arabia-saudita-qatar-ed-emirati-arabi-uniti-il-videomessaggio-del-presidente-meloni" class="fonte" target="_blank">Governo.it — comunicato ufficiale</a></p>
+        <p>Le parole di Meloni nel videomessaggio ufficiale da Palazzo Chigi sono cristalline: <em>"Per l'Italia è importante, in una fase così difficile, essere presente nei luoghi dove si decide una parte fondamentale della nostra sicurezza e anche del nostro futuro economico. Questa missione è la prima di un leader europeo nel Golfo dall'inizio di questa nuova fase del conflitto."</em> <a href="https://www.governo.it/it/articolo/visita-arabia-saudita-qatar-ed-emirati-arabi-uniti-il-videomessaggio-del-presidente-meloni" class="fonte" target="_blank" rel="noopener noreferrer">Governo.it — comunicato ufficiale</a></p>
 
         <p>La valenza strategica è duplice. Sul piano energetico immediato: dai tre Paesi visitati proviene circa il 15% del greggio necessario all'Italia. Sul piano geopolitico di lungo periodo: le monarchie del Golfo stanno rivalutando le proprie alleanze — e l'Italia, arrivando per prima, si trova in una posizione negoziale superiore a qualsiasi altro Paese europeo. Va aggiunto un dato distintivo: il Governo ha <strong>negato a Washington l'uso della base di Sigonella</strong> per aerei militari diretti in Medio Oriente — un atto di autonomia che ha segnalato la volontà di mantenere una propria linea diplomatica pur restando nell'alleanza atlantica.</p>
 
@@ -918,9 +311,9 @@
                 </div>
             </div>
 
-            <div class="debunk-box real" style="margin-top:28px;">
+            <div class="section-spaced debunk-box real">
                 <h4>✅ LA RISPOSTA CONCRETA DELLO STATO: Il Governo Stanzia Quasi 1 Miliardo sulle Accise</h4>
-                <p><strong>Dati Verificati:</strong> Il Governo Meloni ha stanziato finora quasi <strong>1 miliardo di euro</strong> per la riduzione delle accise sui carburanti, nel tentativo di attutire l'impatto del rialzo del greggio su famiglie e imprese. Il Decreto Carburanti, in sinergia tra <strong>MIMIT</strong> e <strong>MEF</strong>, mantiene attivo il monitoraggio del Garante dei Prezzi. Le verifiche della <strong>Guardia di Finanza</strong> su migliaia di impianti stradali e autostradali hanno prodotto denunce per frode in commercio, contestazioni per mancata trasparenza sul portale 'Osservaprezzi' ed espulsioni temporanee di licenze. <a href="https://www.ilpost.it/2026/04/04/giorgia-meloni-visita-golfo-persico-arabia-saudita/" class="fonte" target="_blank">Il Post, 4 apr. 2026</a></p>
+                <p><strong>Dati Verificati:</strong> Il Governo Meloni ha stanziato finora quasi <strong>1 miliardo di euro</strong> per la riduzione delle accise sui carburanti, nel tentativo di attutire l'impatto del rialzo del greggio su famiglie e imprese. Il Decreto Carburanti, in sinergia tra <strong>MIMIT</strong> e <strong>MEF</strong>, mantiene attivo il monitoraggio del Garante dei Prezzi. Le verifiche della <strong>Guardia di Finanza</strong> su migliaia di impianti stradali e autostradali hanno prodotto denunce per frode in commercio, contestazioni per mancata trasparenza sul portale 'Osservaprezzi' ed espulsioni temporanee di licenze. <a href="https://www.ilpost.it/2026/04/04/giorgia-meloni-visita-golfo-persico-arabia-saudita/" class="fonte" target="_blank" rel="noopener noreferrer">Il Post, 4 apr. 2026</a></p>
             </div>
         </div>
 
@@ -931,19 +324,19 @@
 
         <p>La visita di Meloni in Algeria — perno del Piano Mattei e fornitore di gas naturale fondamentale per l'Italia attraverso il Trans-Mediterranean Pipeline — rappresenta uno dei pilastri operativi concreti di questa strategia di diversificazione. Consolidando i rapporti bilaterali, l'Algeria è diventata formalmente la chiave per ridurre la vulnerabilità italiana rispetto alle rotte mediorientali.</p>
 
-        <p>Il Piano Mattei dispone di <span class="highlight-data">5,5 miliardi di euro complessivi</span> — di cui 3 miliardi dal Fondo Italiano per il Clima (gestito da Cassa Depositi e Prestiti) e 2,5 miliardi dal Fondo Rotativo per la Cooperazione allo Sviluppo (MAECI). <a href="https://it.wikipedia.org/wiki/Piano_Mattei_per_l'Africa" class="fonte" target="_blank">Wikipedia — Piano Mattei</a></p>
+        <p>Il Piano Mattei dispone di <span class="highlight-data">5,5 miliardi di euro complessivi</span> — di cui 3 miliardi dal Fondo Italiano per il Clima (gestito da Cassa Depositi e Prestiti) e 2,5 miliardi dal Fondo Rotativo per la Cooperazione allo Sviluppo (MAECI). <a href="https://it.wikipedia.org/wiki/Piano_Mattei_per_l'Africa" class="fonte" target="_blank" rel="noopener noreferrer">Wikipedia — Piano Mattei</a></p>
 
         <h3>Le Tappe Fondamentali (Aggiornamento Marzo 2026)</h3>
         <ul class="dossier-list">
-            <li><strong>18 Paesi africani coinvolti:</strong> ai 9 pilota originari si sono aggiunti nel 2025 Angola, Ghana, Mauritania, Senegal e Tanzania; nel marzo 2026, in una conferenza alla Banca d'Italia con il Presidente della Banca Mondiale Ajay Banga, Meloni ha annunciato l'ingresso di Gabon, Rwanda, RDC e Zambia. <a href="https://www.info-cooperazione.it/2026/3/quattro-nuovi-paesi-nel-piano-mattei" class="fonte" target="_blank">Info-Cooperazione</a></li>
-            <li><strong>Corridoio di Lobito:</strong> asse strategico Angola–Zambia–RDC per collegare l'Atlantico alle risorse interne dell'Africa centrale, aggirandosi i corridoi instabili. I nuovi partner rafforzano direttamente questa dimensione infrastrutturale. <a href="https://www.economymagazine.it/il-piano-mattei-aggiunge-alti-4-paesi-africani-gabon-ruanda-zambia-e-congo/" class="fonte" target="_blank">Economy Magazine</a></li>
+            <li><strong>18 Paesi africani coinvolti:</strong> ai 9 pilota originari si sono aggiunti nel 2025 Angola, Ghana, Mauritania, Senegal e Tanzania; nel marzo 2026, in una conferenza alla Banca d'Italia con il Presidente della Banca Mondiale Ajay Banga, Meloni ha annunciato l'ingresso di Gabon, Rwanda, RDC e Zambia. <a href="https://www.info-cooperazione.it/2026/3/quattro-nuovi-paesi-nel-piano-mattei" class="fonte" target="_blank" rel="noopener noreferrer">Info-Cooperazione</a></li>
+            <li><strong>Corridoio di Lobito:</strong> asse strategico Angola–Zambia–RDC per collegare l'Atlantico alle risorse interne dell'Africa centrale, aggirandosi i corridoi instabili. I nuovi partner rafforzano direttamente questa dimensione infrastrutturale. <a href="https://www.economymagazine.it/il-piano-mattei-aggiunge-alti-4-paesi-africani-gabon-ruanda-zambia-e-congo/" class="fonte" target="_blank" rel="noopener noreferrer">Economy Magazine</a></li>
             <li><strong>1,3 miliardi già mobilitati</strong> (dati al Vertice di Addis Abeba, 2026) su 5,5 previsti. Il Piano Mattei è integrato nel Global Gateway dell'Unione Europea (150 miliardi destinati all'Africa) e beneficia del pieno supporto della Banca Mondiale e della Banca Africana di Sviluppo.</li>
             <li><strong>Laboratori Mattei e formazione professionale:</strong> la misura SIMEST "Misura Africa" (200 milioni) e il Plafond Africa di CDP (500 milioni) finanziano programmi nei settori energetico, agricolo e industriale per costruire partenariati durevoli e frenare le cause strutturali dell'emigrazione.</li>
         </ul>
 
         <div class="nota-verifica">
             <h4>📌 Nota di contesto critico sul Piano Mattei</h4>
-            <p>Completezza richiede di segnalare che, dei 5,5 miliardi annunciati, risultano mobilitati circa 1,3 miliardi al marzo 2026. Le risorse non sono interamente "nuove": i 3 miliardi del Fondo Italiano per il Clima erano originariamente destinati agli obiettivi climatici dell'Accordo di Parigi. Analisti internazionali sottolineano la mancanza di un sistema di monitoraggio indipendente e la necessità di una co-progettazione più profonda con i partner africani per evitare derive top-down. Queste criticità non invalidano il piano, ma richiedono un'accelerazione nell'attuazione concreta. <a href="https://www.aiom.fvg.it/il-vertice-italia-africa-2026-e-il-rilancio-del-piano-mattei-tra-ambizioni-geopolitiche-e-sostenibilita-strategica/" class="fonte" target="_blank">AIOM, 2026</a></p>
+            <p>Completezza richiede di segnalare che, dei 5,5 miliardi annunciati, risultano mobilitati circa 1,3 miliardi al marzo 2026. Le risorse non sono interamente "nuove": i 3 miliardi del Fondo Italiano per il Clima erano originariamente destinati agli obiettivi climatici dell'Accordo di Parigi. Analisti internazionali sottolineano la mancanza di un sistema di monitoraggio indipendente e la necessità di una co-progettazione più profonda con i partner africani per evitare derive top-down. Queste criticità non invalidano il piano, ma richiedono un'accelerazione nell'attuazione concreta. <a href="https://www.aiom.fvg.it/il-vertice-italia-africa-2026-e-il-rilancio-del-piano-mattei-tra-ambizioni-geopolitiche-e-sostenibilita-strategica/" class="fonte" target="_blank" rel="noopener noreferrer">AIOM, 2026</a></p>
         </div>
 
         <p>La lezione della crisi di Hormuz è definitiva: la sovranità energetica non si costruisce durante un'emergenza bellica — si costruisce in anticipo, con decenni di infrastrutture, rotte alternative e relazioni diplomatiche consolidate. Il Piano Mattei è la scommessa italiana su questo orizzonte. La missione nel Golfo di aprile ne è la manifestazione tattica di breve periodo. L'Algeria ne è il pilastro operativo già attivo.</p>
@@ -983,7 +376,7 @@
             </div>
             <div class="footer-logo">Non Funziona Così</div>
         <p>&copy; 2026 Testata Giornalistica Conservatrice Indipendente. Tutti i diritti riservati.</p>
-        <p style="font-size: 0.85rem; margin-top: 10px; color: rgba(255,255,255,0.3);">«I numeri non hanno opinione politica.»</p>
+        <p class="footer-motto">«I numeri non hanno opinione politica.»</p>
     </div>
 </footer>
 
