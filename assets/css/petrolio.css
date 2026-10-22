@@ -1,7 +1,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-    font-family: var(--font-display);
+    font-family: var(--font-reading);
     background-color: var(--dark-slate);
     color: var(--ink-black);
     line-height: 1.75;
@@ -262,7 +262,7 @@ em { color: #444; }
     background: rgba(197,160,89,.06);
 }
 .expert-quote blockquote {
-    font-family: var(--font-display);
+    font-family: var(--font-reading);
     font-style: italic;
     font-size: clamp(.95rem,2.2vw,1.08rem);
     color: var(--dark-slate);
@@ -369,7 +369,7 @@ em { color: #444; }
     margin-top: 28px;
 }
 .confronto-conclusion p {
-    font-family: var(--font-display);
+    font-family: var(--font-reading);
     font-style: italic;
     font-size: clamp(.95rem,2.3vw,1.08rem);
     color: var(--marble-white);
@@ -417,7 +417,7 @@ em { color: #444; }
 }
 .debunk-box.fake h4 { color: #f87171; font-family: var(--font-ui); font-size: clamp(.9rem,2.2vw,1.05rem); margin-bottom: 8px; }
 .debunk-box.real h4 { color: #4ade80; font-family: var(--font-ui); font-size: clamp(.9rem,2.2vw,1.05rem); margin-bottom: 8px; }
-.debunk-box p { font-family: var(--font-display); margin-bottom:0; text-align:left; font-size: clamp(.95rem,2.2vw,1.08rem); }
+.debunk-box p { font-family: var(--font-reading); margin-bottom:0; text-align:left; font-size: clamp(.95rem,2.2vw,1.08rem); }
 
 .golfo-box {
     background: linear-gradient(135deg, #1a2535 0%, #1F2022 100%);

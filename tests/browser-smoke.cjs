@@ -8,7 +8,12 @@ const root = path.resolve(__dirname, '..');
 const prefix = '/nonfunzionacosi/';
 const pages = ['pagine/home.html', 'pagine/chi_siamo.html',
     'articoli/petrolio_wti/index_petrolio.html', 'articoli/superbonus_110/index_superbonus.html'];
-const mime = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.png': 'image/png' };
+const mime = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.png': 'image/png', '.woff2': 'font/woff2' };
+const fontVariants = [
+    '500 16px Cinzel', '700 16px Cinzel',
+    '400 16px "Playfair Display"', '700 16px "Playfair Display"', 'italic 400 16px "Playfair Display"',
+    '400 16px Inter', '500 16px Inter', '600 16px Inter', '700 16px Inter'
+];
 const server = http.createServer((req, res) => {
     let file;
     try {
@@ -41,6 +46,12 @@ const server = http.createServer((req, res) => {
                 page.on('response', response => { if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`); });
                 page.on('request', request => { if (!request.url().startsWith(base)) errors.push(`External request: ${request.url()}`); });
                 await page.goto(base + route);
+                const fontsLoaded = await page.evaluate(async variants => {
+                    const faces = await Promise.all(variants.map(font => document.fonts.load(font, 'È già così — 123 € Āă')));
+                    await document.fonts.ready;
+                    return faces.every(group => group.length > 0 && group.every(face => face.status === 'loaded'));
+                }, fontVariants);
+                assert.equal(fontsLoaded, true, `${route} at ${width}: local font variants failed to load`);
                 assert.deepEqual(errors, [], `${route} at ${width}: browser errors`);
                 assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), true,
                     `${route} at ${width}: horizontal overflow`);
@@ -64,7 +75,8 @@ const server = http.createServer((req, res) => {
         await page.locator('[data-slide="2"]').press('Home');
         assert.equal(await page.locator('.banner-slide:not([hidden])').count(), 1);
         assert.equal(await page.locator('form,input[type="email"]').count(), 0);
-        assert.equal(await page.getByRole('button', { name: 'Combatti con Noi' }).isDisabled(), true);
+        assert.equal(await page.getByRole('heading', { name: 'Resta Libero. Newsletter in arrivo.' }).isVisible(), true);
+        assert.equal(await page.locator('.newsletter button, .newsletter a').count(), 0);
         await page.evaluate(() => {
             window.cspViolations = [];
             document.addEventListener('securitypolicyviolation', e => window.cspViolations.push(e.effectiveDirective));
@@ -79,6 +91,18 @@ const server = http.createServer((req, res) => {
         assert.equal(await page.evaluate(() => !!window.inlineCodeExecuted || !!window.inlineHandlerExecuted), false);
         assert.ok((await page.evaluate(() => window.cspViolations)).includes('script-src-elem'));
         assert.ok((await page.evaluate(() => window.cspViolations)).includes('script-src-attr'));
+        let externalFontRequest = false;
+        await page.route('https://example.invalid/**', route => {
+            externalFontRequest = true;
+            return route.abort();
+        });
+        const externalFontBlocked = await page.evaluate(async () => {
+            const font = new FontFace('BlockedExternalFont', 'url("https://example.invalid/font.woff2")');
+            try { await font.load(); return false; } catch { return true; }
+        });
+        await page.waitForFunction(() => window.cspViolations.includes('font-src'));
+        assert.equal(externalFontBlocked, true, 'CSP must block external fonts');
+        assert.equal(externalFontRequest, false, 'External font must be blocked before the network');
         await page.close();
         const noJS = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 900 } });
         const staticPage = await noJS.newPage();
@@ -88,7 +112,7 @@ const server = http.createServer((req, res) => {
         assert.equal(await staticPage.locator('.banner-dots:visible').count(), 0);
         assert.equal(await staticPage.locator('main a[href*="index_petrolio"]').count(), 3);
         await noJS.close();
-        console.log(`PASS: ${checks} page/viewport combinations; redirect, keyboard carousel, no-JS fallback, newsletter and browser CSP enforcement.`);
+        console.log(`PASS: ${checks} page/viewport combinations; 9 local font variants, redirect, keyboard carousel, no-JS fallback, newsletter and browser CSP enforcement.`);
     } finally {
         await browser.close();
         await new Promise(resolve => server.close(resolve));

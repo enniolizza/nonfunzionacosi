@@ -78,13 +78,15 @@ def check_site(root=ROOT):
                     and a.get('http-equiv', '').lower() == 'content-security-policy']
         require(len(policies) == 1, path, 'exactly one CSP required')
         if policies:
-            directives = {part.split()[0]: part.split()[1:]
-                          for part in policies[0].split(';') if part.strip()}
+            parts = [part.split() for part in policies[0].split(';') if part.strip()]
+            directives = {part[0]: part[1:] for part in parts}
+            require(len(directives) == len(parts), path, 'duplicate CSP directive')
             for directive in ['default-src', 'object-src', 'base-uri', 'form-action',
                               'connect-src', 'frame-src', 'script-src-attr', 'style-src-attr']:
                 require(directives.get(directive) == ["'none'"], path, f'{directive} must block by default')
             require(directives.get('script-src') == ["'self'"], path, 'scripts must be local')
             require(directives.get('style-src') == ["'self'"], path, 'styles must be local')
+            require(directives.get('font-src') == ["'self'"], path, 'font-src must be self only')
             require(not any(x in policies[0] for x in ['unsafe-inline', 'unsafe-eval', '*', 'data:']),
                     path, 'unsafe CSP source')
             require('frame-ancestors' not in directives, path, 'frame-ancestors is ignored in meta CSP')
@@ -112,9 +114,15 @@ def check_site(root=ROOT):
                     require(not urlsplit(attrs[key]).scheme and not attrs[key].startswith('//'), path,
                             f'external resource: {attrs[key]}')
                     check_link(path, attrs[key])
-            if tag == 'link' and attrs.get('rel') == 'stylesheet':
+            if tag == 'link' and 'stylesheet' in attrs.get('rel', '').split():
                 href = attrs.get('href', '')
                 require(not urlsplit(href).scheme and not href.startswith('//'), path, 'external stylesheet')
+                check_link(path, href)
+            if tag == 'link' and (attrs.get('as') == 'font' or
+                                  set(attrs.get('rel', '').split()) & {'preload', 'prefetch', 'preconnect', 'dns-prefetch'}):
+                href = attrs.get('href', '')
+                require(not urlsplit(href).scheme and not href.startswith('//'), path,
+                        'external font or resource hint forbidden')
                 check_link(path, href)
             if tag == 'img':
                 require('alt' in attrs, path, 'image missing alt')
@@ -123,12 +131,51 @@ def check_site(root=ROOT):
         if resource_positions:
             require(text.find('Content-Security-Policy') < min(resource_positions), path, 'late CSP')
 
+    font_faces = set()
+    font_urls = set()
     for path in sorted((root / 'assets/css').glob('*.css')):
         css = path.read_text()
-        require('@import' not in css, path, 'CSS imports forbidden')
-        for _, url in re.findall(r'url\(([\'\"]?)([^)\'\"]+)\1\)', css):
+        require('@import' not in css.casefold(), path, 'CSS imports forbidden')
+        for _, url in re.findall(r'url\(\s*([\'\"]?)([^)\'\"]+?)\1\s*\)', css, re.I):
             require(not urlsplit(url).scheme and not url.startswith('//'), path, 'external CSS resource')
             check_link(path, url)
+        for body in re.findall(r'@font-face\s*\{([^}]+)\}', css, re.I):
+            props = dict(re.findall(r'([\w-]+)\s*:\s*([^;]+)', body))
+            require(props.get('font-display') == 'swap', path, 'fonts must use font-display: swap')
+            source = re.fullmatch(r"url\(['\"]?(\.\./fonts/[\w-]+\.woff2)['\"]?\) format\(['\"]woff2['\"]\)", props.get('src', ''))
+            require(source is not None, path, 'font source must be a local WOFF2 in assets/fonts')
+            if source:
+                font_urls.add((path.parent / source[1]).resolve())
+            font_faces.add((props.get('font-family', '').strip("'\""),
+                            props.get('font-style'), props.get('font-weight')))
+
+    expected_faces = {('Cinzel', 'normal', weight) for weight in ['500', '700']}
+    expected_faces |= {('Inter', 'normal', weight) for weight in ['400', '500', '600', '700']}
+    expected_faces |= {('Playfair Display', 'normal', weight) for weight in ['400', '700']}
+    expected_faces.add(('Playfair Display', 'italic', '400'))
+    font_root = root / 'assets/fonts'
+    manifest_path = font_root / 'sources.json'
+    manifest = json.loads(manifest_path.read_text())
+    require(font_faces == expected_faces, manifest_path, 'required font families, styles or weights changed')
+    expected_files = {(font_root / entry['path']).resolve() for entry in manifest['fonts']}
+    require(font_urls == expected_files, manifest_path, 'CSS fonts differ from provenance manifest')
+    require({p.resolve() for p in font_root.glob('*.woff2')} == expected_files,
+            manifest_path, 'unlisted or missing WOFF2 file')
+    for entry in manifest['fonts'] + manifest['licenses']:
+        path = font_root / entry['path']
+        require(path.is_file(), path, 'missing font or license')
+        if not path.is_file():
+            continue
+        data = path.read_bytes()
+        require(sha256(data).hexdigest() == entry['sha256'], path, 'font/license fingerprint changed')
+        if path.suffix == '.woff2':
+            require(data[:4] == b'wOF2' and int.from_bytes(data[8:12], 'big') == len(data),
+                    path, 'invalid WOFF2 header or length')
+            require(len(data) == entry['bytes'], path, 'font size differs from provenance manifest')
+        else:
+            require(b'SIL OPEN FONT LICENSE Version 1.1' in data, path, 'OFL license missing')
+    require({entry['family'] for entry in manifest['licenses']} == {'Cinzel', 'Inter', 'Playfair Display'},
+            manifest_path, 'a font family is missing its license')
 
     baseline = json.loads((root / 'tests/content-baseline.json').read_text())
     for rel, expected in baseline['pages'].items():
@@ -147,4 +194,4 @@ if __name__ == '__main__':
     if errors:
         print('\n'.join(errors), file=sys.stderr)
         sys.exit(1)
-    print(f'OK: {count} pages; content fingerprints, CSP, local assets and internal links verified.')
+    print(f'OK: {count} pages; content fingerprints, CSP, local fonts/licenses, assets and internal links verified.')

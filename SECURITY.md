@@ -12,12 +12,14 @@ permessi di scrittura e può modificare anche la policy.
 
 ## Controlli nel codice
 
-- Risorse eseguibili e immagini locali; font di sistema senza chiamate a CDN.
+- Risorse eseguibili, immagini e font WOFF2 locali; nessuna chiamata a CDN.
+- Font Cinzel, Playfair Display e Inter con licenze OFL, provenienza e SHA-256
+  registrati; `font-src 'self'` e controllo delle risorse esterne.
 - CSP prima delle risorse: script e CSS locali, blocco di script/stili inline,
   connessioni, form, oggetti, frame e worker.
 - `base-uri 'none'` e politica del referrer.
 - `noopener noreferrer` sui collegamenti aperti in nuove schede.
-- Controlli offline di policy, contenuti e collegamenti su ogni PR/push.
+- Controlli offline di policy, contenuti, font e collegamenti su ogni PR e push a `main`.
 - Action ufficiale fissata a SHA, token `contents: read`, nessun segreto usato.
 
 ## Controlli dell'account e dell'hosting

@@ -113,7 +113,7 @@ header {
 }
 
 h1 {
-    font-family: var(--font-display);
+    font-family: var(--font-reading);
     font-size: 2.8rem;
     line-height: 1.15;
     margin-bottom: 20px;
@@ -123,7 +123,7 @@ h1 {
 .subtitle {
     font-size: 1.2rem;
     color: var(--text-muted);
-    font-weight: 300;
+    font-weight: 400;
     max-width: 700px;
     margin: 0 auto;
 }
@@ -146,7 +146,7 @@ h1 {
 }
 
 h2 {
-    font-family: var(--font-display);
+    font-family: var(--font-reading);
     font-size: 2rem;
     color: var(--text-main);
     margin: 50px 0 20px;
@@ -348,7 +348,7 @@ a:hover { color: var(--imperial-gold); }
 }
 .fraud-amount {
     font-size: 1.8rem;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--primary-color);
     margin-bottom: 8px;
 }
@@ -367,7 +367,7 @@ a:hover { color: var(--imperial-gold); }
 }
 .big-number {
     font-size: 4rem;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--primary-color);
     line-height: 1;
     margin-bottom: 10px;
@@ -431,7 +431,7 @@ a:hover { color: var(--imperial-gold); }
     margin: 40px 0;
     font-style: italic;
     color: var(--text-muted);
-    font-family: var(--font-display);
+    font-family: var(--font-reading);
     font-size: 1.05rem;
 }
 

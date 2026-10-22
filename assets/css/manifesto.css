@@ -3,11 +3,11 @@ body { background: var(--parchment); color: var(--dark-slate); line-height: 1.7;
 .container { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
 .hero { background: var(--dark-slate); padding: 64px 24px; text-align: center; border-bottom: 3px double var(--imperial-gold); }
 .hero h2 { font: 500 clamp(2rem, 5vw, 3.5rem)/1.15 var(--font-display); color: var(--imperial-gold); margin-bottom: 24px; }
-.hero p { font: italic 1.3rem/1.6 var(--font-display); color: #e8dfcd; max-width: 720px; margin: auto; }
+.hero p { font: italic 1.3rem/1.6 var(--font-reading); color: #e8dfcd; max-width: 720px; margin: auto; }
 main { padding: 56px 0; }
 .chi-siamo-intro { max-width: 760px; margin: 0 auto 36px; }
 .chi-siamo-intro h3 { font: 500 2rem/1.2 var(--font-display); color: var(--roman-red); margin-bottom: 24px; }
-.chi-siamo-intro p { font: 1.15rem/1.8 var(--font-display); margin-bottom: 20px; }
+.chi-siamo-intro p { font: 1.15rem/1.8 var(--font-reading); margin-bottom: 20px; }
 .drop-cap { float: left; font: 4.7rem/.9 var(--font-display); padding-right: 12px; color: var(--roman-red); }
 .section-divider { border: 0; height: 1px; background: var(--rule); margin: 42px auto; width: 76%; }
 .virtue-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin: 36px 0 54px; }

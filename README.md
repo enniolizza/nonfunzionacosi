@@ -10,7 +10,8 @@ Sito editoriale statico pubblicato su GitHub Pages. HTML, CSS e JavaScript nativ
 | `pagine/home.html` | Prima pagina e archivio degli articoli |
 | `pagine/chi_siamo.html` | Manifesto originale |
 | `articoli/` | Articoli, fonti e immagini originali |
-| `assets/css/shared.css` | Colori, caratteri di sistema, testata, footer, accessibilità |
+| `assets/css/shared.css` | Colori, font locali, testata, footer, accessibilità |
+| `assets/fonts/` | Cinzel, Playfair Display, Inter in WOFF2, licenze OFL e provenienza |
 | `assets/css/home.css`, `manifesto.css` | Layout delle due pagine principali |
 | `assets/css/petrolio.css`, `superbonus.css` | Componenti specifici dei dossier |
 | `assets/js/carousel.js` | Navigazione manuale e accessibile dei banner |
@@ -36,9 +37,15 @@ Non modificare la sorgente Pages per provare il ramo di lavoro.
 python scripts/check_site.py
 node --check assets/js/carousel.js
 git diff --check
+git diff --check origin/main...HEAD
 ```
 
-La pipeline `Site checks` esegue questi controlli senza installare pacchetti.
+Il primo controllo del diff riguarda le modifiche non ancora in stage; il
+secondo confronta i commit del ramo con `origin/main` (aggiornare prima i ref).
+La pipeline `Site checks` parte sulle PR e sui push a `main`, senza installare
+pacchetti. Scarica la cronologia per controllare gli spazi nel diff tra la base
+della PR e il commit verificato, oppure tra il commit precedente e quello del
+push a `main`. Non usa il diff vuoto del checkout pulito.
 La sola GitHub Action usata è `actions/checkout`, fissata al commit completo,
 con token in sola lettura e credenziali non persistenti. Dependabot propone
 aggiornamenti dell'Action: non li approva e non li integra automaticamente.
@@ -54,8 +61,9 @@ Si può indicare un browser locale con `CHROME_PATH` e una cartella di screensho
 con `QA_OUTPUT`. Su PowerShell si impostano con `$env:CHROME_PATH` e
 `$env:QA_OUTPUT`. Il test avvia e chiude un server locale, verifica quattro
 larghezze da 320 a 1440 px, navigazione da tastiera, redirect anche senza
-JavaScript, newsletter disattivata e blocco reale degli script inline da parte
-della Content Security Policy. Questo test browser non viene installato né
+JavaScript, caricamento delle nove varianti dei font locali, newsletter in
+arrivo e blocco reale degli script inline e dei font esterni da parte della
+Content Security Policy. Questo test browser non viene installato né
 eseguito dalla pipeline minimale.
 
 ## Modifiche editoriali
@@ -71,6 +79,13 @@ Per una nuova pagina, mantenere la CSP all'inizio di `head`, utilizzare CSS e
 JavaScript locali e registrare gli URL nella sitemap. Evitare stili e gestori
 JavaScript inline. Non inserire chiavi, token, file privati o credenziali nel
 repository: tutti i file del repository pubblico sono consultabili.
+`lastmod` nella sitemap indica l'ultima modifica significativa della pagina,
+anche tecnica; non sostituisce la data editoriale del testo. Le cinque pagine
+sono state aggiornate il 22 ottobre 2026 per policy, stili e struttura.
+
+I font si caricano esclusivamente dal sito con `font-src 'self'`. Provenienza,
+licenze e impronte sono descritte in `assets/fonts/README.md`; il controllo
+offline rifiuta font esterni e rileva modifiche ai file acquisiti.
 
 La newsletter è esplicitamente inattiva e non raccoglie indirizzi. Attivarla
 richiede una scelta separata del servizio, una verifica dei dati trattati e

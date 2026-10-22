@@ -66,20 +66,46 @@ Le carenze sotto non sono prove di una compromissione già avvenuta.
 | --- | --- |
 | Nessuna CSP nelle cinque pagine | CSP esplicita prima delle risorse; script/CSS locali; vietati inline, oggetti, frame, form e connessioni applicative |
 | JavaScript inline, `onclick`, `onsubmit` e 31 stili inline | Estratti script e stili; eventi con `addEventListener`; nomi descrittivi per le varianti |
-| Font caricati da Google a ogni visita | Font di sistema; nessuna richiesta a font/CDN di terze parti |
+| Font caricati da Google a ogni visita | Cinzel, Playfair Display e Inter ospitati nel repository con OFL; nessuna richiesta a font/CDN di terze parti |
 | Link del dossier aperti con `_blank` senza `rel` esplicito | `noopener noreferrer` uniformi; protezione aggiuntiva anche se i browser moderni applicano già implicitamente noopener in molti casi |
-| Newsletter finta: conferma di successo senza registrazione | Rimossi input e form; stato inattivo esplicito, nessuna email raccolta |
+| Newsletter finta: conferma di successo senza registrazione | Rimossi input, form e pulsante; titolo “Newsletter in arrivo”, nessuna email raccolta |
 | Link `#` a categorie e contenuti in arrivo | Categorie collegate a sezioni reali; anticipazioni non cliccabili |
 | Banner con rotazione automatica e indicatori non utilizzabili da tastiera | Pulsanti, stato accessibile e navigazione manuale; tutti i pannelli leggibili senza JS |
 | CSS di testata, palette e footer duplicati | Componenti comuni e CSS separato per pagina; home e manifesto riorganizzati |
 | Nessun controllo di regressione nel repository | Controllo offline di link, policy e impronte editoriali; workflow con permessi minimi |
-| Ramo `main` non protetto secondo API; nessun ruleset restituito | Da configurare nelle impostazioni; non modificato in questa revisione |
+| Configurazione amministrativa separata dal codice | Checklist in `SECURITY.md`; nessuna impostazione di account o hosting modificata |
 
 La home presenta prima i due articoli e identifica l'archivio di aprile. Colori,
-immagini, riferimenti romani, testi, orientamento e collegamenti social sono
-preservati. Gli articoli non sono stati riscritti, aggiornati o sottoposti a
+immagini, riferimenti romani, orientamento e collegamenti social sono preservati.
+Il testo informativo della newsletter è stato corretto; articoli e manifesto
+non sono stati riscritti, aggiornati o sottoposti a
 fact-checking editoriale. Le loro affermazioni, date e fonti restano quelle
 originali, compresa la vecchia dicitura sul tempo reale nel dossier petrolio.
+
+## Correzioni dopo la revisione indipendente
+
+Il secondo intervento prosegue sopra `a52ff7e`, senza amend, merge o riscrittura
+della cronologia. `tests/content-baseline.json` rimane invariato.
+
+- Workflow: push limitati a `main` e trigger PR; `fetch-depth: 0`; controllo
+  whitespace contro la base effettiva della PR o il commit precedente del push.
+- Font: nove varianti richieste, otto WOFF2 per i sottoinsiemi Latin/Latin Extended,
+  268.864 byte complessivi, `font-display: swap` e licenze OFL originali. Le famiglie
+  sono di nuovo distinte tra testate romane, testo editoriale e interfaccia.
+  Origini ufficiali e SHA-256 sono in `assets/fonts/sources.json`.
+- CSP: `font-src 'self'` in tutte le pagine; controllo offline dei font, dei
+  preload esterni, dei file e delle licenze; test di caricamento nel browser.
+- Rimosso `Apri_Trading_in_the_Zone.pdf` dal nuovo albero del ramo, su richiesta
+  del proprietario. La rimozione non cancella le copie nella cronologia né
+  modifica `main` o il sito pubblico prima di un eventuale merge.
+- Sitemap: `lastmod` al 22 ottobre 2026 per le cinque pagine effettivamente
+  modificate. Le date di pubblicazione degli articoli restano quelle originali.
+- Newsletter: presentata come servizio in arrivo, senza invito a iscriversi
+  e senza pulsante inutilizzabile.
+
+Il piano editoriale e `wyckoff_wti_v2.pdf` restano nel repository pubblico.
+Il ticker e i riepiloghi della home conservano le formulazioni originali:
+l'etichetta archivio non equivale a una verifica dei dati di aprile.
 
 ## PDF allegato
 
@@ -118,9 +144,10 @@ nella pipeline. Dependabot può proporre aggiornamenti della Action.
 - Testo normalizzato del `main` dei due articoli e del manifesto identico alla
   base Git, con confronto SHA-256; stessa sequenza delle fonti/social esterni.
 - Controllo nel browser su quattro pagine a 320, 390, 768 e 1440 px: 16 combinazioni,
-  senza overflow della pagina, errori JavaScript o risorse mancanti.
+  senza overflow della pagina, errori JavaScript o risorse mancanti; nove varianti
+  dei font caricate con successo, compresi corsivo e caratteri Latin Extended.
 - Redirect, banner da tastiera, fallback senza JS e newsletter inattiva verificati.
-- Prova locale di inserimento di script e gestore inline: entrambi bloccati dalla CSP.
+- Prova locale di inserimento di script, gestore inline e font esterno: bloccati dalla CSP.
 - Controllo mirato nel codice tracciato di pattern di chiavi private e token GitHub/AWS:
   nessuna corrispondenza; non è una scansione completa dei segreti nella cronologia.
 - Nessuna prova di intrusione, esfiltrazione, exploit, invio di email o modifica
@@ -135,13 +162,14 @@ operativo di sicurezza.
 ## Prossime azioni del proprietario
 
 1. Proteggere account GitHub e Instagram con MFA/passkey; rivedere autorizzazioni
-   e token. Dare priorità al ramo `main`, attualmente non protetto.
+   e token. Verificare la protezione del ramo `main` secondo `SECURITY.md`.
 2. Esaminare la PR e il controllo `Site checks`; controllare Pages/HTTPS prima
    dell'integrazione e verificare nuovamente le pagine dopo la pubblicazione.
 3. Conservare una copia indipendente e provare il ripristino.
 4. Verificare che sia intenzionale rendere pubblici anche i PDF e gli appunti
    presenti nel repository: `robots.txt` non è un controllo degli accessi e
-   non rende privato un file. Nessun file preesistente è stato cancellato.
+   non rende privato un file. Il PDF indicato sopra è stato rimosso dal ramo;
+   non è stata riscritta la cronologia.
 5. Prima di introdurre newsletter, CMS, analytics o nuove integrazioni,
    documentare utilità, permessi, dati e processo di aggiornamento.
 
@@ -149,5 +177,7 @@ Ulteriori riferimenti tecnici:
 [OWASP CSP](https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html),
 [W3C WAI, carousel accessibili](https://www.w3.org/WAI/tutorials/carousels/),
 [GitHub, sicurezza delle Actions](https://docs.github.com/en/actions/reference/security/secure-use),
+[Google Fonts, utilizzo e stili](https://developers.google.com/fonts/docs/getting_started),
+[Sitemaps, significato di lastmod](https://www.sitemaps.org/protocol.html),
 [Refactoring Guru, tecniche](https://refactoring.guru/refactoring/techniques),
 [Refactoring Guru, code smells](https://refactoring.guru/refactoring/smells).
