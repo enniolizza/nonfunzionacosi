@@ -58,6 +58,21 @@ const server = http.createServer((req, res) => {
                 assert.equal(await page.locator('img').evaluateAll(images => images.every(img => img.complete && img.naturalWidth > 0)), true, 'Broken image');
                 assert.equal(await page.locator('main').count(), 1);
                 assert.equal(await page.locator('main').isVisible(), true);
+                if (route.startsWith('articoli/')) {
+                    assert.equal(await page.getByRole('complementary', { name: 'Nota di archivio' }).isVisible(), true);
+                    assert.equal(await page.locator('main .archive-notice').count(), 0, 'Archive notice must not alter original article text');
+                }
+                if (route.includes('petrolio_wti')) {
+                    const heroFits = await page.locator('.dossier-hero').evaluate(hero => {
+                        const bounds = hero.getBoundingClientRect();
+                        return [...hero.querySelectorAll('.badge-dossier, h1, .subtitle')].every(element => {
+                            const rect = element.getBoundingClientRect();
+                            return rect.top >= bounds.top - 1 && rect.bottom <= bounds.bottom + 1 &&
+                                rect.left >= bounds.left - 1 && rect.right <= bounds.right + 1;
+                        });
+                    });
+                    assert.equal(heroFits, true, `Oil dossier at ${width}: clipped title, badge or subtitle`);
+                }
                 if (output && [390, 1440].includes(width)) {
                     await page.screenshot({ path: path.join(output, `${path.basename(route, '.html')}-${width}.png`), fullPage: true });
                 }

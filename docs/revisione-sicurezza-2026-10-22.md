@@ -1,5 +1,11 @@
 # Revisione di sicurezza e manutenibilità — 22 ottobre 2026
 
+Questo documento registra gli interventi del 22 ottobre. Per la successiva
+riscrittura della cronologia, le note di archivio, la sitemap e la correzione
+del titolo su mobile, vedere [l'aggiornamento del 23 ottobre](pulizia-cronologia-2026-10-23.md).
+Le indicazioni sul PDF ancora nei rami e sulle formulazioni della home descrivono
+lo stato precedente a quell'intervento.
+
 ## Esito
 
 Il progetto esaminato è un sito statico: cinque documenti HTML, CSS incorporati

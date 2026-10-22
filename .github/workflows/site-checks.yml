@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
       # Official actions/checkout v6; immutable commit, verified on 2026-10-22.
@@ -24,6 +24,8 @@ jobs:
           persist-credentials: false
       - name: Check content, browser policy and local links
         run: python3 scripts/check_site.py
+      - name: Check removed PDF stays out of Git history
+        run: python3 scripts/check_history.py
       - name: Check JavaScript syntax
         run: node --check assets/js/carousel.js
       - name: Check changed whitespace

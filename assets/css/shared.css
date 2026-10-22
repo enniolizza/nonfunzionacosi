@@ -263,6 +263,12 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-padding-top: 7rem; }
 body { font-family: var(--font-ui); -webkit-font-smoothing: antialiased; }
+.archive-notice {
+    background: var(--parchment); color: var(--dark-slate);
+    border-bottom: 2px solid var(--imperial-gold); padding: 18px max(20px, calc((100% - 1120px) / 2));
+    font: 400 .9rem/1.6 var(--font-ui);
+}
+.archive-notice strong { display: block; color: var(--roman-red); margin-bottom: 4px; }
 img { max-width: 100%; height: auto; }
 button, input { font: inherit; }
 a { text-underline-offset: .2em; }

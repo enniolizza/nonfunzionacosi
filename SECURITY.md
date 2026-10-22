@@ -20,6 +20,8 @@ permessi di scrittura e può modificare anche la policy.
 - `base-uri 'none'` e politica del referrer.
 - `noopener noreferrer` sui collegamenti aperti in nuove schede.
 - Controlli offline di policy, contenuti, font e collegamenti su ogni PR e push a `main`.
+- Controllo della cronologia completa per impedire la reintroduzione del PDF
+  rimosso attraverso un vecchio ramo; percorso escluso anche da `.gitignore`.
 - Action ufficiale fissata a SHA, token `contents: read`, nessun segreto usato.
 
 ## Controlli dell'account e dell'hosting

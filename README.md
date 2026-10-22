@@ -16,6 +16,7 @@ Sito editoriale statico pubblicato su GitHub Pages. HTML, CSS e JavaScript nativ
 | `assets/css/petrolio.css`, `superbonus.css` | Componenti specifici dei dossier |
 | `assets/js/carousel.js` | Navigazione manuale e accessibile dei banner |
 | `scripts/check_site.py` | Verifiche offline senza dipendenze esterne |
+| `scripts/check_history.py` | Rifiuto del PDF rimosso nei riferimenti Git disponibili |
 | `tests/content-baseline.json` | Impronte del contenuto originale e collegamenti preservati |
 | `docs/revisione-sicurezza-2026-10-22.md` | Analisi, fonti, limiti e interventi amministrativi |
 
@@ -35,6 +36,7 @@ Non modificare la sorgente Pages per provare il ramo di lavoro.
 
 ```bash
 python scripts/check_site.py
+python scripts/check_history.py
 node --check assets/js/carousel.js
 git diff --check
 git diff --check origin/main...HEAD
@@ -43,7 +45,8 @@ git diff --check origin/main...HEAD
 Il primo controllo del diff riguarda le modifiche non ancora in stage; il
 secondo confronta i commit del ramo con `origin/main` (aggiornare prima i ref).
 La pipeline `Site checks` parte sulle PR e sui push a `main`, senza installare
-pacchetti. Scarica la cronologia per controllare gli spazi nel diff tra la base
+pacchetti, sul runner `ubuntu-24.04`. Scarica la cronologia completa per
+controllare l'assenza del PDF rimosso e gli spazi nel diff tra la base
 della PR e il commit verificato, oppure tra il commit precedente e quello del
 push a `main`. Non usa il diff vuoto del checkout pulito.
 La sola GitHub Action usata è `actions/checkout`, fissata al commit completo,
@@ -80,8 +83,10 @@ JavaScript locali e registrare gli URL nella sitemap. Evitare stili e gestori
 JavaScript inline. Non inserire chiavi, token, file privati o credenziali nel
 repository: tutti i file del repository pubblico sono consultabili.
 `lastmod` nella sitemap indica l'ultima modifica significativa della pagina,
-anche tecnica; non sostituisce la data editoriale del testo. Le cinque pagine
-sono state aggiornate il 22 ottobre 2026 per policy, stili e struttura.
+non la data di pubblicazione. Per i due articoli d'archivio il campo facoltativo
+è omesso: il refactoring non aggiorna prezzi, dati o notizie. Le date originali
+restano nel testo; una nota esterna al corpo dell'articolo chiarisce il contesto
+storico. Home e ticker presentano esplicitamente l'archivio di aprile 2026.
 
 I font si caricano esclusivamente dal sito con `font-src 'self'`. Provenienza,
 licenze e impronte sono descritte in `assets/fonts/README.md`; il controllo
@@ -110,6 +115,12 @@ Riferimenti: [tecniche](https://refactoring.guru/refactoring/techniques),
 [Extract Method](https://refactoring.guru/extract-method).
 
 ## Rilascio e ripristino
+
+Dopo la riscrittura della cronologia del 23 ottobre 2026, creare un clone nuovo.
+Non integrare vecchi rami nella nuova storia: un merge potrebbe reintrodurre
+il PDF già rimosso. `check_history.py` controlla percorso e identificativo del
+blob su tutti i riferimenti Git locali e rifiuta i cloni superficiali. Questo
+controllo non verifica cache GitHub, fork o riferimenti remoti non scaricati.
 
 Esaminare la pull request e i controlli prima di integrare in `main`.
 L'integrazione potrebbe attivare la pubblicazione Pages già configurata.
